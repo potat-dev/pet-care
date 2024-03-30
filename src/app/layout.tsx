@@ -1,12 +1,10 @@
 import '@mantine/core/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import { ContextProvider } from '@/firebase/context';
+import { AuthContextProvider } from '@/firebase/context';
 import { theme } from './theme';
 
-import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { MantineLogo } from '@mantinex/mantine-logo';
+import { AppFrame } from '@/components/AppFrame';
 
 export const metadata = {
   title: 'Mantine Next.js template',
@@ -26,7 +24,9 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme}>
-          <ContextProvider>{children}</ContextProvider>
+          <AuthContextProvider>
+            <AppFrame>{children}</AppFrame>
+          </AuthContextProvider>
         </MantineProvider>
       </body>
     </html>

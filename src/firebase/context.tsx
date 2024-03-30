@@ -13,7 +13,7 @@ interface ContextProps {
 
 const Context = createContext<ContextProps | undefined>(undefined);
 
-export const ContextProvider = ({ children }: { children: any }) => {
+export const AuthContextProvider = ({ children }: { children: any }) => {
   const [session, setSession] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
