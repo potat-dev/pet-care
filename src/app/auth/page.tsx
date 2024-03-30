@@ -1,24 +1,13 @@
-// 'use client';
-
-// import { useRouter } from 'next/navigation';
-// import { useAuthContext } from '@/firebase/context';
-
-// export default function AuthForm() {
-//   const router = useRouter();
-//   // const { session, loading, auth } = useAuthContext(); - use this
-
-// }
-
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useAuthContext } from '@/firebase/context';
 import { Button, TextInput, Group, Text, Divider } from '@mantine/core';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { useAuthContext } from '@/firebase/context';
 
 export default function AuthForm() {
   const router = useRouter();
-  const { auth, signInWithRedirect, signInWithPopupError, loading } = useAuthContext();
+  const { auth, loading } = useAuthContext();
 
   const handleGoogleSignIn = async () => {
     try {
@@ -38,7 +27,7 @@ export default function AuthForm() {
       ) : (
         <>
           <h2>Welcome!</h2>
-          <Group direction="column">
+          <Group>
             <Button variant="outline" onClick={handleGoogleSignIn}>
               Sign in with Google
             </Button>

@@ -1,24 +1,23 @@
 'use client';
 
-import { signOut } from 'firebase/auth';
-import { Button, Paper, Text, Col, Menu, MenuItem } from '@mantine/core';
+import { Button } from '@mantine/core';
 import Link from 'next/link';
 import { useAuthContext } from '@/firebase/context';
 import Loading from '../Loader/Loader';
 
 export function UserButton() {
-  const { session, loading, auth } = useAuthContext();
+  const { session, loading } = useAuthContext();
 
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-  };
+  // const handleSignOut = () => {
+  //   signOut(auth)
+  //     .then(() => {
+  //       // Sign-out successful.
+  //     })
+  //     .catch((error) => {
+  //       // An error happened.
+  //       console.log(error);
+  //     });
+  // };
 
   if (loading) {
     return <Loading className="text-white" />;

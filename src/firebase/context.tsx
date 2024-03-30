@@ -5,13 +5,13 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth, db } from '@/firebase/firebase';
 
 interface ContextProps {
+  auth: typeof auth;
   session: User | null;
   loading: boolean;
-  auth: typeof auth;
   db: typeof db;
 }
 
-const Context = createContext<ContextProps | undefined>(undefined);
+const Context = createContext<ContextProps>({} as ContextProps);
 
 export const AuthContextProvider = ({ children }: { children: any }) => {
   const [session, setSession] = useState<User | null>(null);
