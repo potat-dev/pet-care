@@ -6,7 +6,6 @@ import { TestComp } from '@/components/test';
 
 export default function HomePage() {
   return (
-    // <ScrollArea type="scroll" offsetScrollbars>
     <>
       <Welcome />
       <ColorSchemeToggle />
@@ -14,8 +13,9 @@ export default function HomePage() {
       <Center>
         <UserButton />
       </Center>
+      
+      <br />
       <TestComp />
     </>
-    // </ScrollArea>
   );
 }

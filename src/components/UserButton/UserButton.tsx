@@ -24,11 +24,11 @@ export function UserButton() {
     return <Loading className="text-white" />;
   }
   if (session) {
-    const displayName = session.displayName || session.email;
-    const title =
-      displayName.slice(0, displayName.indexOf('@')).length <= 15
-        ? displayName.slice(0, displayName.indexOf('@'))
-        : `${displayName.slice(0, 10)}...`;
+    // const displayName = session.displayName || session.email;
+    // const title =
+    //   displayName.slice(0, displayName.indexOf('@')).length <= 15
+    //     ? displayName.slice(0, displayName.indexOf('@'))
+    //     : `${displayName.slice(0, 10)}...`;
 
     // return (
     //   <Col>
@@ -45,7 +45,7 @@ export function UserButton() {
     //     </Paper>
     //   </Col>
     // );
-    
+
     return (
       <Link href="/auth">
         <Button>Signed In!!!</Button>

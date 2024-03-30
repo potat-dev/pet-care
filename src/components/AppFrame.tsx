@@ -6,13 +6,16 @@ import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
 // import classes from './MobileNavbar.module.css';
 
+import { UserMenu } from '@/components/UserMenu';
+import { PetsMenu } from '@/components/PetsMenu';
+
 function LinkButton({ text, link, onClick }: { text: string; link: string; onClick?: () => void }) {
   return (
     <Button
       variant="subtle"
       color="gray"
       size="md"
-      radius="md"
+      // radius="md"
       justify="start"
       onClick={onClick}
       component={Link}
@@ -36,11 +39,17 @@ export function AppFrame({ children }: { children: any }) {
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group justify="space-between" style={{ flex: 1 }}>
-            <MantineLogo size={30} />
-            <Group ml="xl" gap={0} visibleFrom="sm">
-              <LinkButton text="Home" link="/" />
-              <LinkButton text="About" link="/about" />
-              <LinkButton text="Auth" link="/auth" />
+            <Group>
+              <MantineLogo size={30} />
+              <Group gap={0} visibleFrom="sm">
+                <LinkButton text="Home" link="/" />
+                <LinkButton text="About" link="/about" />
+                <LinkButton text="Auth" link="/auth" />
+              </Group>
+            </Group>
+            <Group gap={0} visibleFrom="sm">
+              <PetsMenu />
+              <UserMenu />
             </Group>
           </Group>
         </Group>
