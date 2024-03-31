@@ -131,8 +131,5 @@ dist
 
 .DS_Store
 
-# pnpm
-pnpm-lock.yaml
-
 # vscode
 .vscode/

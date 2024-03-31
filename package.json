@@ -1,7 +1,7 @@
 {
-  "name": "pet-care-app",
-  "version": "1.0.0",
-  "private": true,
+  "name": "pet-care",
+  "version": "0.1.0",
+  "description": "App for pet's health care",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -70,6 +70,5 @@
     "stylelint-config-standard-scss": "^13.0.0",
     "ts-jest": "^29.1.2",
     "typescript": "5.4.2"
-  },
-  "packageManager": "yarn@4.1.1"
+  }
 }
