@@ -6,7 +6,7 @@ import { useAuthContext } from '@/firebase/context';
 import Loading from '../Loader/Loader';
 
 export function UserButton() {
-  const { session, loading } = useAuthContext();
+  const { user, loading } = useAuthContext();
 
   // const handleSignOut = () => {
   //   signOut(auth)
@@ -22,7 +22,7 @@ export function UserButton() {
   if (loading) {
     return <Loading className="text-white" />;
   }
-  if (session) {
+  if (user) {
     // const displayName = session.displayName || session.email;
     // const title =
     //   displayName.slice(0, displayName.indexOf('@')).length <= 15

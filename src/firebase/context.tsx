@@ -6,7 +6,7 @@ import { auth, db } from '@/firebase/firebase';
 
 interface ContextProps {
   auth: typeof auth;
-  session: User | null;
+  user: User | null;
   loading: boolean;
   db: typeof db;
 }
@@ -14,15 +14,15 @@ interface ContextProps {
 const Context = createContext<ContextProps>({} as ContextProps);
 
 export const AuthContextProvider = ({ children }: { children: any }) => {
-  const [session, setSession] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  onAuthStateChanged(auth, (user) => {
-    setSession(user || null);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser || null);
     setLoading(false);
   });
 
-  return <Context.Provider value={{ session, loading, auth, db }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ auth, user, loading, db }}>{children}</Context.Provider>;
 };
 
 export const useAuthContext = () => useContext(Context);

@@ -1,72 +1,82 @@
-import { Menu, Button, Text, rem } from '@mantine/core';
+'use client';
+
+import { Menu, Button } from '@mantine/core';
 import {
-  IconSettings,
-  IconSearch,
-  IconPhoto,
-  IconMessageCircle,
-  IconTrash,
-  IconArrowsLeftRight,
+  IconLogin,
+  IconUser,
+  IconSettings2 as IconSettings,
+  IconLogout,
+  IconMoon,
+  IconSun,
   IconChevronDown,
+  IconSwitchHorizontal,
 } from '@tabler/icons-react';
 
-export function UserMenu() {
+import { useAuthContext } from '@/firebase/context';
+
+const iconProps = {
+  size: '1rem',
+};
+
+function LoginDropdown() {
   return (
-    <Menu
-      position="bottom-end"
-      // offset={11}
-      trigger="hover"
-      shadow="md"
-      width={200}
-    >
+    <Menu.Dropdown>
+      <Menu.Label>Login with Google</Menu.Label>
+      <Menu.Item leftSection={<IconLogin {...iconProps} />}>Login</Menu.Item>
+    </Menu.Dropdown>
+  );
+}
+
+// function AccountDropdown() {
+//   return (
+//     <Menu.Dropdown>
+//       <Menu.Label>Account</Menu.Label>
+//       <Menu.Item leftSection={<IconUser {...iconProps} />}>Profile</Menu.Item>
+//       <Menu.Item leftSection={<IconSettings {...iconProps} />}>Settings</Menu.Item>
+//       <Menu.Item leftSection={<IconLogout {...iconProps} />}>Logout</Menu.Item>
+//       <Menu.Divider />
+//       <Menu.Label>Theme</Menu.Label>
+//       <Menu.Item leftSection={<IconMoon {...iconProps} />}>Dark theme</Menu.Item>
+//     </Menu.Dropdown>
+//   );
+// }
+
+function AccountDropdown() {
+  return (
+    <Menu.Dropdown>
+      <Menu.Item leftSection={<IconUser {...iconProps} />}>Profile</Menu.Item>
+      <Menu.Item leftSection={<IconSettings {...iconProps} />}>Settings</Menu.Item>
+      <Menu.Item
+        leftSection={<IconSwitchHorizontal {...iconProps} />}
+        rightSection={<IconMoon {...iconProps} />}
+      >
+        Theme
+      </Menu.Item>
+      <Menu.Item color="red" leftSection={<IconLogout {...iconProps} />}>
+        Logout
+      </Menu.Item>
+    </Menu.Dropdown>
+  );
+}
+
+export function UserMenu() {
+  const { loading, user } = useAuthContext();
+
+  return (
+    <Menu position="bottom-end" trigger="hover" shadow="md" width={200}>
       <Menu.Target>
         <Button
           variant="subtle"
           color="gray"
           size="md"
-          // justify="start"
+          loading={loading}
           rightSection={<IconChevronDown />}
         >
-          Denis Churilov
+          {user ? user.displayName : 'Login'}
         </Button>
       </Menu.Target>
 
-      <Menu.Dropdown>
-        <Menu.Label>Application</Menu.Label>
-        <Menu.Item leftSection={<IconSettings style={{ width: rem(14), height: rem(14) }} />}>
-          Settings
-        </Menu.Item>
-        <Menu.Item leftSection={<IconMessageCircle style={{ width: rem(14), height: rem(14) }} />}>
-          Messages
-        </Menu.Item>
-        <Menu.Item leftSection={<IconPhoto style={{ width: rem(14), height: rem(14) }} />}>
-          Gallery
-        </Menu.Item>
-        <Menu.Item
-          leftSection={<IconSearch style={{ width: rem(14), height: rem(14) }} />}
-          rightSection={
-            <Text size="xs" c="dimmed">
-              ⌘K
-            </Text>
-          }
-        >
-          Search
-        </Menu.Item>
-
-        <Menu.Divider />
-
-        <Menu.Label>Danger zone</Menu.Label>
-        <Menu.Item
-          leftSection={<IconArrowsLeftRight style={{ width: rem(14), height: rem(14) }} />}
-        >
-          Transfer my data
-        </Menu.Item>
-        <Menu.Item
-          color="red"
-          leftSection={<IconTrash style={{ width: rem(14), height: rem(14) }} />}
-        >
-          Delete my account
-        </Menu.Item>
-      </Menu.Dropdown>
+      {user ? <AccountDropdown /> : <LoginDropdown />}
     </Menu>
   );
 }
