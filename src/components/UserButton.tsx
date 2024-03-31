@@ -3,7 +3,7 @@
 import { Button } from '@mantine/core';
 import Link from 'next/link';
 import { useAuthContext } from '@/firebase/context';
-import Loading from '../Loader/Loader';
+import Loading from './Loader';
 
 export function UserButton() {
   const { user, loading } = useAuthContext();

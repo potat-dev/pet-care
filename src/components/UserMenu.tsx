@@ -7,7 +7,7 @@ import {
   IconSettings2 as IconSettings,
   IconLogout,
   IconMoon,
-  IconSun,
+  // IconSun,
   IconChevronDown,
   IconSwitchHorizontal,
 } from '@tabler/icons-react';

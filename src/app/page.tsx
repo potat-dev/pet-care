@@ -1,7 +1,7 @@
-import { Center, ScrollArea } from '@mantine/core';
+import { Center } from '@mantine/core';
 import { Welcome } from '@/components/Welcome/Welcome';
-import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
-import { UserButton } from '@/components/UserButton/UserButton';
+import { ColorSchemeToggle } from '@/components/ColorSchemeToggle';
+import { UserButton } from '@/components/UserButton';
 import { TestComp } from '@/components/test';
 
 export default function HomePage() {
@@ -13,7 +13,6 @@ export default function HomePage() {
       <Center>
         <UserButton />
       </Center>
-      
       <br />
       <TestComp />
     </>

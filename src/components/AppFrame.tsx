@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { AppShell, Burger, Button, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
-// import classes from './MobileNavbar.module.css';
 
 import { UserMenu } from '@/components/UserMenu';
 import { PetsMenu } from '@/components/PetsMenu';
@@ -15,7 +14,6 @@ function LinkButton({ text, link, onClick }: { text: string; link: string; onCli
       variant="subtle"
       color="gray"
       size="md"
-      // radius="md"
       justify="start"
       onClick={onClick}
       component={Link}
