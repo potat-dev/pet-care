@@ -1,14 +1,18 @@
 'use client';
 
 import { useState, createContext, useContext } from 'react';
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { auth, db } from '@/firebase/firebase';
+import { onAuthStateChanged, Auth, User } from 'firebase/auth';
+import { Firestore } from 'firebase/firestore';
+
+import { signIn, signOut, auth, db } from '@/firebase/firebase';
 
 interface ContextProps {
-  auth: typeof auth;
+  signIn: () => Promise<void>;
+  signOut: () => Promise<void>;
+  auth: Auth;
   user: User | null;
   loading: boolean;
-  db: typeof db;
+  db: Firestore;
 }
 
 const Context = createContext<ContextProps>({} as ContextProps);
@@ -22,7 +26,11 @@ export const AuthContextProvider = ({ children }: { children: any }) => {
     setLoading(false);
   });
 
-  return <Context.Provider value={{ auth, user, loading, db }}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ signIn, signOut, auth, user, loading, db }}>
+      {children}
+    </Context.Provider>
+  );
 };
 
 export const useAuthContext = () => useContext(Context);

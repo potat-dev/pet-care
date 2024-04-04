@@ -19,15 +19,21 @@ const iconProps = {
 };
 
 function LoginDropdown() {
+  const { signIn } = useAuthContext();
+
   return (
     <Menu.Dropdown>
       <Menu.Label>Login with Google</Menu.Label>
-      <Menu.Item leftSection={<IconLogin {...iconProps} />}>Login</Menu.Item>
+      <Menu.Item leftSection={<IconLogin {...iconProps} />} onClick={signIn}>
+        Login
+      </Menu.Item>
     </Menu.Dropdown>
   );
 }
 
 function AccountDropdown() {
+  const { signOut } = useAuthContext();
+
   return (
     <Menu.Dropdown>
       <Menu.Label>Account</Menu.Label>
@@ -36,7 +42,7 @@ function AccountDropdown() {
       <Menu.Item leftSection={<IconSettings {...iconProps} />}>Settings</Menu.Item>
       <Menu.Divider />
       <Menu.Item leftSection={<IconMoon {...iconProps} />}>Dark theme</Menu.Item>
-      <Menu.Item leftSection={<IconLogout {...iconProps} />} color="red">
+      <Menu.Item leftSection={<IconLogout {...iconProps} />} onClick={signOut} color="red">
         Logout
       </Menu.Item>
     </Menu.Dropdown>
