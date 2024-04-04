@@ -15,7 +15,7 @@ export default function AuthForm() {
       await signInWithPopup(auth, provider);
       router.push('/'); // Redirect to home page after successful login
     } catch (error) {
-      console.error('Error signing in with Google:', error);
+      // console.error('Error signing in with Google:', error);
       // Handle errors gracefully (e.g., display an error message to the user)
     }
   };

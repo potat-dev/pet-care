@@ -1,10 +1,12 @@
-import '@mantine/core/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import { AuthContextProvider } from '@/firebase/context';
-import { theme } from './theme';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
+import { AuthContextProvider } from '@/firebase/context';
 import { AppFrame } from '@/components/AppFrame';
+import { theme } from '@/app/theme';
+
+import '@mantine/core/styles.css';
 
 export const metadata = {
   title: 'Pet Care',
@@ -28,6 +30,7 @@ export default function RootLayout({ children }: { children: any }) {
             <AppFrame>{children}</AppFrame>
           </AuthContextProvider>
         </MantineProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
