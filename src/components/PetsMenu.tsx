@@ -1,71 +1,37 @@
-import { Menu, Button, Text, rem } from '@mantine/core';
-import {
-  IconSettings,
-  IconSearch,
-  IconPhoto,
-  IconMessageCircle,
-  IconTrash,
-  IconArrowsLeftRight,
-  IconChevronDown,
-} from '@tabler/icons-react';
+'use client';
+
+import { Menu, Badge, Button } from '@mantine/core';
+import { IconCat, IconDog, IconList, IconPlus, IconChevronDown } from '@tabler/icons-react';
+
+const iconProps = {
+  size: '1rem',
+};
 
 export function PetsMenu() {
   return (
-    <Menu
-      // position="bottom-end"
-      // offset={11}
-      trigger="hover"
-      shadow="md"
-      width={200}
-    >
+    <Menu trigger="hover" shadow="md" width={200}>
       <Menu.Target>
-        <Button
-          variant="subtle"
-          color="gray"
-          size="md"
-          // justify="start"
-          rightSection={<IconChevronDown />}
-        >
+        <Button variant="subtle" color="gray" size="md" rightSection={<IconChevronDown />}>
           My pets
         </Button>
       </Menu.Target>
-
       <Menu.Dropdown>
-        <Menu.Label>Application</Menu.Label>
-        <Menu.Item leftSection={<IconSettings style={{ width: rem(14), height: rem(14) }} />}>
-          Settings
-        </Menu.Item>
-        <Menu.Item leftSection={<IconMessageCircle style={{ width: rem(14), height: rem(14) }} />}>
-          Messages
-        </Menu.Item>
-        <Menu.Item leftSection={<IconPhoto style={{ width: rem(14), height: rem(14) }} />}>
-          Gallery
-        </Menu.Item>
+        <Menu.Label>Favourite</Menu.Label>
         <Menu.Item
-          leftSection={<IconSearch style={{ width: rem(14), height: rem(14) }} />}
+          leftSection={<IconCat {...iconProps} />}
           rightSection={
-            <Text size="xs" c="dimmed">
-              ⌘K
-            </Text>
+            <Badge variant="light" color="blue">
+              6.2 kg
+            </Badge>
           }
         >
-          Search
+          Marcel
         </Menu.Item>
-
+        <Menu.Item leftSection={<IconDog {...iconProps} />}>Jeronimo</Menu.Item>
+        <Menu.Item leftSection={<IconCat {...iconProps} />}>Brosha</Menu.Item>
         <Menu.Divider />
-
-        <Menu.Label>Danger zone</Menu.Label>
-        <Menu.Item
-          leftSection={<IconArrowsLeftRight style={{ width: rem(14), height: rem(14) }} />}
-        >
-          Transfer my data
-        </Menu.Item>
-        <Menu.Item
-          color="red"
-          leftSection={<IconTrash style={{ width: rem(14), height: rem(14) }} />}
-        >
-          Delete my account
-        </Menu.Item>
+        <Menu.Item leftSection={<IconList {...iconProps} />}>Show all</Menu.Item>
+        <Menu.Item leftSection={<IconPlus {...iconProps} />}>Add new pet</Menu.Item>
       </Menu.Dropdown>
     </Menu>
   );

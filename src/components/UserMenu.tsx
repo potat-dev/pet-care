@@ -7,9 +7,9 @@ import {
   IconSettings2 as IconSettings,
   IconLogout,
   IconMoon,
+  IconChartLine,
   // IconSun,
   IconChevronDown,
-  IconSwitchHorizontal,
 } from '@tabler/icons-react';
 
 import { useAuthContext } from '@/firebase/context';
@@ -27,32 +27,16 @@ function LoginDropdown() {
   );
 }
 
-// function AccountDropdown() {
-//   return (
-//     <Menu.Dropdown>
-//       <Menu.Label>Account</Menu.Label>
-//       <Menu.Item leftSection={<IconUser {...iconProps} />}>Profile</Menu.Item>
-//       <Menu.Item leftSection={<IconSettings {...iconProps} />}>Settings</Menu.Item>
-//       <Menu.Item leftSection={<IconLogout {...iconProps} />}>Logout</Menu.Item>
-//       <Menu.Divider />
-//       <Menu.Label>Theme</Menu.Label>
-//       <Menu.Item leftSection={<IconMoon {...iconProps} />}>Dark theme</Menu.Item>
-//     </Menu.Dropdown>
-//   );
-// }
-
 function AccountDropdown() {
   return (
     <Menu.Dropdown>
+      <Menu.Label>Account</Menu.Label>
       <Menu.Item leftSection={<IconUser {...iconProps} />}>Profile</Menu.Item>
+      <Menu.Item leftSection={<IconChartLine {...iconProps} />}>Dashboard</Menu.Item>
       <Menu.Item leftSection={<IconSettings {...iconProps} />}>Settings</Menu.Item>
-      <Menu.Item
-        leftSection={<IconSwitchHorizontal {...iconProps} />}
-        rightSection={<IconMoon {...iconProps} />}
-      >
-        Theme
-      </Menu.Item>
-      <Menu.Item color="red" leftSection={<IconLogout {...iconProps} />}>
+      <Menu.Divider />
+      <Menu.Item leftSection={<IconMoon {...iconProps} />}>Dark theme</Menu.Item>
+      <Menu.Item leftSection={<IconLogout {...iconProps} />} color="red">
         Logout
       </Menu.Item>
     </Menu.Dropdown>
