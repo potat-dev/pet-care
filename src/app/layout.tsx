@@ -1,6 +1,7 @@
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 import { AuthContextProvider } from '@/firebase/context';
 import { AppFrame } from '@/components/AppFrame';
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: any }) {
           </AuthContextProvider>
         </MantineProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
