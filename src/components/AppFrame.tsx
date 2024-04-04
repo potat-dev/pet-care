@@ -8,6 +8,8 @@ import { AppLogo } from '@/components/AppLogo';
 import { UserMenu } from '@/components/UserMenu';
 import { PetsMenu } from '@/components/PetsMenu';
 
+import { useAuthContext } from '@/firebase/context';
+
 function LinkButton({ text, href, onClick }: { text: string; href: string; onClick?: () => void }) {
   return (
     <Button
@@ -26,6 +28,7 @@ function LinkButton({ text, href, onClick }: { text: string; href: string; onCli
 
 export function AppFrame({ children }: { children: any }) {
   const [opened, { toggle }] = useDisclosure();
+  const { user } = useAuthContext();
 
   return (
     <AppShell
@@ -34,18 +37,17 @@ export function AppFrame({ children }: { children: any }) {
       padding="md"
     >
       <AppShell.Header>
-        <Group h="100%" px="md">
+        <Group h="100%" pl={{ sm: 'md' }} pr="md">
           <Group justify="space-between" style={{ flex: 1 }}>
             <Group gap={0}>
               <AppLogo />
               <Group gap={0} visibleFrom="sm">
                 <LinkButton text="Dashboard" href="/dashboard" />
                 <LinkButton text="About" href="/about" />
-                <LinkButton text="Auth" href="/auth" />
               </Group>
             </Group>
             <Group gap={0} visibleFrom="sm">
-              <PetsMenu />
+              {user && <PetsMenu />}
               <UserMenu />
             </Group>
           </Group>
@@ -56,7 +58,6 @@ export function AppFrame({ children }: { children: any }) {
       <AppShell.Navbar p="md">
         <LinkButton text="Home" href="/" onClick={toggle} />
         <LinkButton text="About" href="/about" onClick={toggle} />
-        <LinkButton text="Auth" href="/auth" onClick={toggle} />
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>
