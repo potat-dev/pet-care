@@ -5,7 +5,8 @@ import { IconPawFilled } from '@tabler/icons-react';
 export function AppLogo() {
   return (
     <Button
-      variant="transparent"
+      // variant="transparent"
+      variant="subtle"
       size="md"
       leftSection={<IconPawFilled />}
       component={Link}

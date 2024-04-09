@@ -4,7 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 
 import { AuthContextProvider } from '@/firebase/context';
-import { AppFrame } from '@/components/AppFrame';
+import { AppFrame } from '@/components/AppFrame/AppFrame';
 import { theme } from '@/app/theme';
 
 import '@mantine/core/styles.css';
