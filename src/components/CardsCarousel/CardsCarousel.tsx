@@ -8,10 +8,10 @@ import classes from './CardsCarousel.module.css';
 interface CardProps {
   image: string;
   title: string;
-  category: string;
+  date: string;
 }
 
-function Card({ image, title, category }: CardProps) {
+function Card({ image, title, date }: CardProps) {
   return (
     <Paper
       shadow="md"
@@ -24,7 +24,7 @@ function Card({ image, title, category }: CardProps) {
     >
       <div>
         <Text className={classes.category} size="xs">
-          {category}
+          {date}
         </Text>
         <Title order={3} className={classes.title}>
           {title}

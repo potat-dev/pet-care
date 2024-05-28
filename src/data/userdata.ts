@@ -1,73 +1,138 @@
-interface CardProps {
-  image: string;
-  title: string;
-  category: string;
-}
+import { UserData } from '@/components/interfaces/UserData';
 
-interface Userdata {
-  username: string;
-  cards: CardProps[];
-  images: string[];
-}
-
-const userdata: Userdata[] = [
+const userdata: UserData[] = [
   {
     username: 'denis',
+    name: 'Denis Churilov',
+    status: 'Happy cat owner',
+    avatar: '/placeholder/avatar/denis.jpg',
     cards: [
       {
-        image: '/placeholder/mars-08.jpg',
+        image: '/placeholder/mars/09.jpg',
         title: 'Очень весенний, майский кот',
-        category: '01.05.2024',
+        date: '01.05.2024',
       },
       {
-        image: '/placeholder/mars-06.jpg',
-        title: 'Он любит апельсины',
-        category: '04.05.2024',
+        image: '/placeholder/mars/07.jpg',
+        title: 'Он очень сильно любит апельсины',
+        date: '04.05.2024',
       },
       {
-        image: '/placeholder/mars-07.jpg',
+        image: '/placeholder/mars/08.jpg',
         title: 'Ну какой же он милый дурачок',
-        category: '21.04.2024',
+        date: '21.04.2024',
       },
       {
-        image: '/placeholder/mars-03.jpg',
+        image: '/placeholder/mars/04.jpg',
         title: 'Не вдупляет что происходит',
-        category: '17.05.2024',
+        date: '17.05.2024',
       },
       {
-        image: '/placeholder/mars-01.jpg',
+        image: '/placeholder/mars/01.jpg',
         title: 'Добряк лежит',
-        category: '11.03.2024',
+        date: '11.03.2024',
       },
       {
-        image: '/placeholder/mars-09.jpg',
+        image: '/placeholder/mars/10.jpg',
         title: 'Зацените эти ушки!!',
-        category: '21.04.2024',
+        date: '21.04.2024',
       },
     ],
     images: [
-      '/placeholder/mars-01.jpg',
-      '/placeholder/mars-02.jpg',
-      '/placeholder/mars-03.jpg',
-      '/placeholder/mars-04.jpg',
-      '/placeholder/mars-05.jpg',
-      '/placeholder/mars-06.jpg',
-      '/placeholder/mars-07.jpg',
-      '/placeholder/mars-08.jpg',
-      '/placeholder/mars-09.jpg',
-      '/placeholder/mars-10.jpg',
-      '/placeholder/mars-11.jpg',
+      '/placeholder/mars/01.jpg',
+      '/placeholder/mars/02.jpg',
+      '/placeholder/mars/03.jpg',
+      '/placeholder/mars/04.jpg',
+      '/placeholder/mars/05.jpg',
+      '/placeholder/mars/06.jpg',
+      '/placeholder/mars/07.jpg',
+      '/placeholder/mars/08.jpg',
+      '/placeholder/mars/09.jpg',
+      '/placeholder/mars/10.jpg',
     ],
+    friends: ['nastya', 'maksim'],
   },
   {
     username: 'nastya',
-    cards: [],
-    images: [],
+    name: 'Nastya Trofimova',
+    status: 'Happy dog owner',
+    avatar: '/placeholder/avatar/nastya.jpg',
+    cards: [
+      {
+        image: '/placeholder/djera/09.jpg',
+        title: 'Посмотрите, какой грациозный',
+        date: '17.05.2024',
+      },
+      {
+        image: '/placeholder/djera/10.jpg',
+        title: 'Как же он сладко спит...',
+        date: '17.05.2024',
+      },
+      {
+        image: '/placeholder/djera/05.jpg',
+        title: 'Греет нос, наверное ему холодно',
+        date: '17.05.2024',
+      },
+      {
+        image: '/placeholder/djera/02.jpg',
+        title: 'Он очень солнечный :)',
+        date: '17.05.2024',
+      },
+      {
+        image: '/placeholder/djera/04.jpg',
+        title: 'Райан Гослинг в фильме Драйв',
+        date: '17.05.2024',
+      },
+    ],
+    images: [
+      '/placeholder/djera/01.jpg',
+      '/placeholder/djera/02.jpg',
+      '/placeholder/djera/03.jpg',
+      '/placeholder/djera/04.jpg',
+      '/placeholder/djera/05.jpg',
+      '/placeholder/djera/06.jpg',
+      '/placeholder/djera/07.jpg',
+      '/placeholder/djera/08.jpg',
+      '/placeholder/djera/09.jpg',
+      '/placeholder/djera/10.jpg',
+    ],
+    friends: ['maksim', 'denis'],
   },
   {
     username: 'maksim',
-    cards: [],
-    images: [],
+    name: 'Maksim Barsukov',
+    status: 'Happy cat owner',
+    avatar: '/placeholder/avatar/maksim.jpg',
+    cards: [
+      {
+        image: '/placeholder/brosha/06.jpg',
+        title: 'Толстая креветка',
+        date: '17.05.2024',
+      },
+      {
+        image: '/placeholder/brosha/05.jpg',
+        title: 'Злая редиска',
+        date: '14.05.2024',
+      },
+      {
+        image: '/placeholder/brosha/07.jpg',
+        title: 'Ооооочень ленивый',
+        date: '11.05.2024',
+      },
+    ],
+    images: [
+      '/placeholder/brosha/01.jpg',
+      '/placeholder/brosha/02.jpg',
+      '/placeholder/brosha/04.jpg',
+      '/placeholder/brosha/05.jpg',
+      '/placeholder/brosha/06.jpg',
+      '/placeholder/brosha/07.jpg',
+      '/placeholder/brosha/08.jpg',
+      '/placeholder/brosha/09.jpg',
+      '/placeholder/brosha/03.jpg',
+      '/placeholder/brosha/10.jpg',
+    ],
+    friends: ['denis', 'nastya'],
   },
 ];
 

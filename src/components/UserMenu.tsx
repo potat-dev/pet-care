@@ -55,7 +55,7 @@ function AccountDropdown() {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label>Account</Menu.Label>
-        <Menu.Item leftSection={<IconUser {...iconProps} />} component={Link} href="/me">
+        <Menu.Item leftSection={<IconUser {...iconProps} />} component={Link} href="/profile/denis">
           Profile
         </Menu.Item>
         <Menu.Item leftSection={<IconChartLine {...iconProps} />}>Dashboard</Menu.Item>
