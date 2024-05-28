@@ -5,39 +5,6 @@ import { Carousel } from '@mantine/carousel';
 import { Paper, Title, Text } from '@mantine/core';
 import classes from './CardsCarousel.module.css';
 
-const data = [
-  {
-    image: '/placeholder/mars-08.jpg',
-    title: 'Очень весенний, майский кот',
-    category: '01.05.2024',
-  },
-  {
-    image: '/placeholder/mars-06.jpg',
-    title: 'Он любит апельсины',
-    category: '04.05.2024',
-  },
-  {
-    image: '/placeholder/mars-07.jpg',
-    title: 'Ну какой же он милый дурачок',
-    category: '21.04.2024',
-  },
-  {
-    image: '/placeholder/mars-03.jpg',
-    title: 'Не вдупляет что происходит',
-    category: '17.05.2024',
-  },
-  {
-    image: '/placeholder/mars-01.jpg',
-    title: 'Добряк лежит',
-    category: '11.03.2024',
-  },
-  {
-    image: '/placeholder/mars-09.jpg',
-    title: 'Зацените эти ушки!!',
-    category: '21.04.2024',
-  },
-];
-
 interface CardProps {
   image: string;
   title: string;
@@ -70,10 +37,14 @@ function Card({ image, title, category }: CardProps) {
   );
 }
 
-export function CardsCarousel() {
+interface CardsCarouselProps {
+  cards: CardProps[];
+}
+
+export function CardsCarousel({ cards }: CardsCarouselProps) {
   // const theme = useMantineTheme();
   // const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-  const slides = data.map((item) => (
+  const slides = cards.map((item) => (
     <Carousel.Slide key={item.title}>
       <Card {...item} />
     </Carousel.Slide>
