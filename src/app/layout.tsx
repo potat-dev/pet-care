@@ -8,6 +8,7 @@ import { AppFrame } from '@/components/AppFrame/AppFrame';
 import { theme } from '@/app/theme';
 
 import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
 
 export const metadata = {
   title: 'Pet Care',
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>
+        <MantineProvider theme={theme} defaultColorScheme="dark">
           <AuthContextProvider>
             <AppFrame>{children}</AppFrame>
           </AuthContextProvider>

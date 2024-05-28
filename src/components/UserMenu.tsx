@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu, Button } from '@mantine/core';
+import { Menu, Button, useMantineColorScheme } from '@mantine/core';
 import {
   IconUser,
   IconSettings2 as IconSettings,
@@ -13,6 +13,7 @@ import {
 } from '@tabler/icons-react';
 
 import { useAuthContext } from '@/firebase/context';
+import Link from 'next/link';
 
 const iconProps = {
   size: '1rem',
@@ -37,6 +38,7 @@ function LoginButton() {
 
 function AccountDropdown() {
   const { loading, user, signOut } = useAuthContext();
+  const { toggleColorScheme } = useMantineColorScheme();
 
   return (
     <Menu position="bottom-end" trigger="hover" shadow="md" width={200}>
@@ -53,11 +55,17 @@ function AccountDropdown() {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label>Account</Menu.Label>
-        <Menu.Item leftSection={<IconUser {...iconProps} />}>Profile</Menu.Item>
+        <Menu.Item leftSection={<IconUser {...iconProps} />} component={Link} href="/me">
+          Profile
+        </Menu.Item>
         <Menu.Item leftSection={<IconChartLine {...iconProps} />}>Dashboard</Menu.Item>
-        <Menu.Item leftSection={<IconSettings {...iconProps} />}>Settings</Menu.Item>
+        <Menu.Item leftSection={<IconSettings {...iconProps} />} component={Link} href="/settings">
+          Settings
+        </Menu.Item>
         <Menu.Divider />
-        <Menu.Item leftSection={<IconMoon {...iconProps} />}>Dark theme</Menu.Item>
+        <Menu.Item leftSection={<IconMoon {...iconProps} />} onClick={toggleColorScheme}>
+          Switch theme
+        </Menu.Item>
         <Menu.Item leftSection={<IconLogout {...iconProps} />} onClick={signOut} color="red">
           Logout
         </Menu.Item>

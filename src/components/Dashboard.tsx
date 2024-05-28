@@ -1,3 +1,5 @@
+'use client';
+
 import {
   // SimpleGrid,
   Stack,
@@ -8,8 +10,11 @@ import {
   // Box,
   ScrollArea,
 } from '@mantine/core';
+// import { Carousel } from '@mantine/carousel';
 
 import { PetCard } from '@/components/PetCard';
+// import { CardsCarousel } from '@/components/CardsCarousel/CardsCarousel';
+import { PetCarousel } from './PetCarousel';
 
 export function Dashboard() {
   return (
@@ -17,6 +22,29 @@ export function Dashboard() {
       <Title order={1} px="xl">
         Hello, Denis!
       </Title>
+      <PetCarousel />
+      {/* <CardsCarousel /> */}
+
+      {/* <Carousel slideSize="70%" height={200} slideGap="md" loop>
+        <Carousel.Slide>
+          <PetCard name="Marcel" owner="Your cat" image="marcel.jpg" />
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <PetCard name="Jeronimo" owner="Nastya's dog" image="jerra.jpg" />
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <PetCard name="Brosha" owner="Maxim's cat" image="brosha.jpg" />
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <PetCard name="Lazy ass" owner="Your cat" image="marcel.jpg" />
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <PetCard name="Buldozer" owner="Nastya's dog" image="jerra.jpg" />
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <PetCard name="Deputat" owner="Maxim's cat" image="brosha.jpg" />
+        </Carousel.Slide>
+      </Carousel> */}
       <ScrollArea type="never">
         <Group wrap="nowrap" px="xl">
           <PetCard name="Marcel" owner="Your cat" image="marcel.jpg" />
