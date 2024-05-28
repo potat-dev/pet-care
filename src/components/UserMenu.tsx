@@ -12,8 +12,8 @@ import {
   IconChevronRight,
 } from '@tabler/icons-react';
 
-import { useAuthContext } from '@/firebase/context';
 import Link from 'next/link';
+import { useAuthContext } from '@/firebase/context';
 
 const iconProps = {
   size: '1rem',
