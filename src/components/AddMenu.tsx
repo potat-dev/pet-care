@@ -1,15 +1,11 @@
 'use client';
 
-import { Menu, Button, useMantineColorScheme } from '@mantine/core';
+import { Menu, Button } from '@mantine/core';
 import {
   IconVaccine,
   IconPawFilled,
   IconWeight,
   IconReportMedical,
-  IconChartLine,
-  // IconSun,
-  IconChevronDown,
-  IconChevronRight,
   IconMoodSmile,
   IconPlus,
 } from '@tabler/icons-react';
@@ -21,18 +17,6 @@ const iconProps = {
 };
 
 export function AddMenu() {
-  // const { loading, user, signOut } = useAuthContext();
-  // const { toggleColorScheme } = useMantineColorScheme();
-
-  // return (
-  //   // <Button.Group variant="subtle">
-  //   <Button variant="subtle" color="gray" size="md" leftSection={<IconPlus {...iconProps} />}>
-  //     Add
-  //   </Button>
-  //   // <Button variant="default"></Button>
-  //   // </Button.Group>
-  // );
-
   return (
     <Menu trigger="hover" shadow="md" width={200}>
       <Menu.Target>
@@ -60,9 +44,9 @@ export function AddMenu() {
         <Menu.Item
           leftSection={<IconReportMedical {...iconProps} />}
           component={Link}
-          href="/add/illness"
+          href="/add/sick"
         >
-          Illness
+          Sickness
         </Menu.Item>
 
         <Menu.Item

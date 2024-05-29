@@ -6,8 +6,6 @@ import {
   IconSettings2 as IconSettings,
   IconLogout,
   IconMoon,
-  IconChartLine,
-  // IconSun,
   IconChevronDown,
   IconChevronRight,
 } from '@tabler/icons-react';
@@ -58,7 +56,6 @@ function AccountDropdown() {
         <Menu.Item leftSection={<IconUser {...iconProps} />} component={Link} href="/profile/denis">
           Profile
         </Menu.Item>
-        <Menu.Item leftSection={<IconChartLine {...iconProps} />}>Dashboard</Menu.Item>
         <Menu.Item leftSection={<IconSettings {...iconProps} />} component={Link} href="/settings">
           Settings
         </Menu.Item>
