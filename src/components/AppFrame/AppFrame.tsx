@@ -1,14 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { ActionIcon, AppShell, Burger, Button, Group } from '@mantine/core';
+import { AppShell, Burger, Button, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 // import { IconMenu2 as IconMenu } from '@tabler/icons-react';
 
 import { AppLogo } from '@/components/AppLogo';
-import { UserMenu } from '../UserMenu';
+import { UserMenu } from '@/components/UserMenu';
 
 import classes from './AppFrame.module.css';
+import { AddMenu } from '@/components/AddMenu';
 
 interface AppFrameProps {
   children: React.ReactNode;
@@ -18,9 +19,10 @@ interface LinkButtonProps {
   text: string;
   href: string;
   onClick?: () => void;
+  visibleFrom?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-function LinkButton({ text, href, onClick }: LinkButtonProps) {
+function LinkButton({ text, href, onClick, visibleFrom }: LinkButtonProps) {
   return (
     <Button
       variant="subtle"
@@ -30,6 +32,7 @@ function LinkButton({ text, href, onClick }: LinkButtonProps) {
       onClick={onClick}
       component={Link}
       href={href}
+      visibleFrom={visibleFrom}
     >
       {text}
     </Button>
@@ -50,11 +53,13 @@ export function AppFrame({ children }: AppFrameProps) {
           <Group gap={0}>
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
             <AppLogo />
+            <LinkButton text="About" href="/about" visibleFrom="sm" />
           </Group>
           <Group gap={0}>
             <Group gap={0} visibleFrom="sm">
-              <LinkButton text="Pets" href="/pets" />
-              <LinkButton text="Friends" href="/friends" />
+              {/* <LinkButton text="Add" href="/dashboard" /> */}
+              <AddMenu />
+              {/* <LinkButton text="Friends" href="/friends" /> */}
             </Group>
             <UserMenu />
           </Group>

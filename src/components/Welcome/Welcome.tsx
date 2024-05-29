@@ -8,7 +8,7 @@ import classes from './Welcome.module.css';
 export function Welcome() {
   return (
     <>
-      <Title className={classes.title} ta="center" mt={100}>
+      <Title className={classes.title} ta="center">
         <Text inherit variant="gradient" component="span" gradient={{ from: 'pink', to: 'yellow' }}>
           Pet Care
         </Text>

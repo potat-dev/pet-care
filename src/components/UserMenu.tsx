@@ -29,7 +29,7 @@ function LoginButton() {
       size="md"
       loading={loading}
       onClick={signIn}
-      rightSection={<IconChevronRight />}
+      rightSection={<IconChevronRight {...iconProps} />}
     >
       Login
     </Button>
@@ -48,7 +48,7 @@ function AccountDropdown() {
           color="gray"
           size="md"
           loading={loading}
-          rightSection={<IconChevronDown />}
+          rightSection={<IconChevronDown {...iconProps} />}
         >
           {user ? user.displayName : 'Login'}
         </Button>
