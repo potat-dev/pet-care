@@ -14,7 +14,7 @@ const userdata: UserData[] = [
       },
       {
         image: '/placeholder/mars/07.jpg',
-        title: 'Он очень сильно любит апельсины',
+        title: 'Он очень сильно любит мандарины',
         date: '04.05.2024',
       },
       {

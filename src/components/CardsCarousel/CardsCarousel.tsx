@@ -2,7 +2,8 @@
 
 import { Carousel } from '@mantine/carousel';
 // import { useMediaQuery } from '@mantine/hooks';
-import { Paper, Title, Text } from '@mantine/core';
+import { Paper, Title, Text, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import classes from './CardsCarousel.module.css';
 
 interface CardProps {
@@ -42,8 +43,9 @@ interface CardsCarouselProps {
 }
 
 export function CardsCarousel({ cards }: CardsCarouselProps) {
-  // const theme = useMantineTheme();
-  // const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   const slides = cards.map((item) => (
     <Carousel.Slide key={item.title}>
       <Card {...item} />
@@ -57,6 +59,7 @@ export function CardsCarousel({ cards }: CardsCarouselProps) {
       slideGap="md"
       // slideGap={{ base: 'xl',  }}
       align="start"
+      withIndicators={mobile}
       // slidesToScroll={mobile ? 1 : 2}
       // slidesToScroll={1}
       loop

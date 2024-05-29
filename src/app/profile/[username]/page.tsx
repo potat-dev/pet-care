@@ -1,7 +1,6 @@
 'use client';
 
-import { Card, Text, Group, Title, Container, Avatar, Stack, Space } from '@mantine/core';
-import { useAuthContext } from '@/firebase/context';
+import { Title, Container, Stack, Space } from '@mantine/core';
 import { CardsCarousel } from '@/components/CardsCarousel/CardsCarousel';
 import { ImageGallery } from '@/components/ImageGallery';
 import userdata from '@/data/userdata';
@@ -16,13 +15,11 @@ export default function HomePage({ params }: { params: ProfilePageProps }) {
   const userData = userdata.find((u) => u.username === params.username);
   if (!userData) return <UserNotFound />;
 
-  const { loading, user } = useAuthContext();
-  if (loading) return <Loading />;
-
   return (
     <>
       <Container size="md" px={0}>
         <Stack>
+          {/* <Title order={1}>Profile</Title> */}
           <UserDataCard user={userData} />
 
           <Title order={2}>Best Moments</Title>
@@ -38,16 +35,6 @@ export default function HomePage({ params }: { params: ProfilePageProps }) {
         </Stack>
       </Container>
     </>
-  );
-}
-
-function Loading() {
-  return (
-    <Container size="md" px={0}>
-      <Stack align="center" justify="center" style={{ height: 300 }}>
-        <Title order={1}>Loading...</Title>
-      </Stack>
-    </Container>
   );
 }
 
