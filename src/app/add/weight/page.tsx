@@ -8,12 +8,13 @@ export default function WeightForm() {
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: {
-      weight: 2.2,
+      weight: 0,
       date: new Date(),
     },
 
     validate: {
-      weight: (value) => (!Number.isNaN(value) ? null : 'Invalid weight'),
+      weight: (value) => (value && value !== 0 ? null : 'Invalid weight'),
+      date: (value) => (value ? null : 'Invalid date'),
     },
   });
 
@@ -31,7 +32,7 @@ export default function WeightForm() {
           <Stack gap="sm" mt="xs">
             <NumberInput
               label="Weight"
-              placeholder="Do not enter more than 2"
+              placeholder="Enter weight in kg"
               decimalScale={2}
               step={0.1}
               key={form.key('weight')}
