@@ -35,6 +35,7 @@ export function AppLogo() {
   return (
     <Tooltip label={text} opened={opened}>
       <Button
+        color={mobile ? 'gray' : 'blue'}
         variant="subtle"
         size="md"
         leftSection={mobile ? null : <IconPawFilled />}

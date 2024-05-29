@@ -1,15 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { AppShell, Burger, Button, Group } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { ActionIcon, AppShell, Burger, Button, Group, useMantineTheme } from '@mantine/core';
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 // import { IconMenu2 as IconMenu } from '@tabler/icons-react';
 
+import { IconPlus } from '@tabler/icons-react';
 import { AppLogo } from '@/components/AppLogo';
 import { UserMenu } from '@/components/UserMenu';
 
 import classes from './AppFrame.module.css';
 import { AddMenu } from '@/components/AddMenu';
+import { useAuthContext } from '@/firebase/context';
 
 interface AppFrameProps {
   children: React.ReactNode;
@@ -41,6 +43,10 @@ function LinkButton({ text, href, onClick, visibleFrom }: LinkButtonProps) {
 
 export function AppFrame({ children }: AppFrameProps) {
   const [opened, { toggle }] = useDisclosure();
+  const { user } = useAuthContext();
+
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
   return (
     <AppShell
@@ -55,12 +61,22 @@ export function AppFrame({ children }: AppFrameProps) {
             <AppLogo />
             <LinkButton text="About" href="/about" visibleFrom="sm" />
           </Group>
-          <Group gap={0}>
-            <Group gap={0} visibleFrom="sm">
-              {/* <LinkButton text="Add" href="/dashboard" /> */}
-              <AddMenu />
-              {/* <LinkButton text="Friends" href="/friends" /> */}
-            </Group>
+          <Group gap={mobile ? 'md' : 0}>
+            {user &&
+              (mobile ? (
+                <ActionIcon
+                  variant="subtle"
+                  color="gray"
+                  size="xl"
+                  radius="md"
+                  component={Link}
+                  href="/add"
+                >
+                  <IconPlus style={{ width: '70%', height: '70%' }} stroke={1.5} />
+                </ActionIcon>
+              ) : (
+                <AddMenu />
+              ))}
             <UserMenu />
           </Group>
         </Group>

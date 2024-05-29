@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  Avatar,
-  Menu,
-  Button,
-  useMantineColorScheme,
-  useMantineTheme,
-  UnstyledButton,
-} from '@mantine/core';
+import { Avatar, Menu, Button, useMantineColorScheme, useMantineTheme } from '@mantine/core';
 import {
   IconUser,
   IconSettings2 as IconSettings,
@@ -19,8 +12,6 @@ import {
 
 import Link from 'next/link';
 import { useMediaQuery } from '@mantine/hooks';
-import { User } from 'firebase/auth';
-import { forwardRef } from 'react';
 import { useAuthContext } from '@/firebase/context';
 
 const iconProps = {
@@ -44,41 +35,40 @@ function LoginButton() {
   );
 }
 
-interface UserAvatarProps extends React.ComponentPropsWithoutRef<'button'> {
-  user: User | null;
-}
+export function UserMenu() {
+  const { user, loading, signOut } = useAuthContext();
+  const { toggleColorScheme } = useMantineColorScheme();
 
-const UserAvatar = forwardRef<HTMLButtonElement, UserAvatarProps>(
-  ({ user, ...others }: UserAvatarProps, ref) => (
-    <UnstyledButton ref={ref} {...others}>
-      <Avatar variant="light" radius="xl" size="md" src={user?.photoURL} />
-    </UnstyledButton>
-  )
-);
-
-function AccountDropdown() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
-  const { loading, user, signOut } = useAuthContext();
-  const { toggleColorScheme } = useMantineColorScheme();
+  if (!user) return <LoginButton />;
+
+  if (mobile) {
+    return (
+      <Avatar
+        variant="light"
+        radius="xl"
+        size="md"
+        src={user?.photoURL}
+        component={Link}
+        href="/profile/denis"
+      />
+    );
+  }
 
   return (
-    <Menu position="bottom-end" trigger={mobile ? 'click' : 'hover'} shadow="md" width={200}>
+    <Menu position="bottom-end" trigger="click-hover" shadow="md" width={200}>
       <Menu.Target>
-        {mobile ? (
-          <UserAvatar user={user} />
-        ) : (
-          <Button
-            variant="subtle"
-            color="gray"
-            size="md"
-            loading={loading}
-            rightSection={<IconChevronDown {...iconProps} />}
-          >
-            {user ? user.displayName : 'Login'}
-          </Button>
-        )}
+        <Button
+          variant="subtle"
+          color="gray"
+          size="md"
+          loading={loading}
+          rightSection={<IconChevronDown {...iconProps} />}
+        >
+          {user ? user.displayName : 'Login'}
+        </Button>
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label>Account</Menu.Label>
@@ -98,10 +88,4 @@ function AccountDropdown() {
       </Menu.Dropdown>
     </Menu>
   );
-}
-
-export function UserMenu() {
-  const { user } = useAuthContext();
-  if (user) return <AccountDropdown />;
-  return <LoginButton />;
 }
