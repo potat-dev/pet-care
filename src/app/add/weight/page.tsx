@@ -13,7 +13,7 @@ export default function WeightForm() {
     },
 
     validate: {
-      weight: (value) => (!isNaN(value) ? null : 'Invalid weight'),
+      weight: (value) => (!Number.isNaN(value) ? null : 'Invalid weight'),
     },
   });
 
