@@ -19,7 +19,6 @@ export default function HomePage({ params }: { params: ProfilePageProps }) {
     <>
       <Container size="md" px={0}>
         <Stack>
-          {/* <Title order={1}>Profile</Title> */}
           <UserDataCard user={userData} />
 
           <Title order={2}>Best Moments</Title>
