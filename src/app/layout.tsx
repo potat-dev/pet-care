@@ -9,6 +9,7 @@ import { theme } from '@/app/theme';
 
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
+import '@mantine/dates/styles.css';
 
 export const metadata = {
   title: 'Pet Care',

@@ -4,9 +4,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { Button, Tooltip } from '@mantine/core';
+import { Button, Tooltip, useMantineTheme } from '@mantine/core';
 import { IconPawFilled } from '@tabler/icons-react';
-import { useCounter } from '@mantine/hooks';
+import { useCounter, useMediaQuery } from '@mantine/hooks';
 
 export function AppLogo() {
   const secretNum = 15;
@@ -29,12 +29,15 @@ export function AppLogo() {
     if (count >= (secretNum * 2) / 3) setOpened(true);
   };
 
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
     <Tooltip label={text} opened={opened}>
       <Button
         variant="subtle"
         size="md"
-        leftSection={<IconPawFilled />}
+        leftSection={mobile ? null : <IconPawFilled />}
         onClick={isHome ? doEasterEgg : undefined}
         component={isHome ? undefined : Link}
         href="/"

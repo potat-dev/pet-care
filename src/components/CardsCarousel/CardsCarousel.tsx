@@ -1,7 +1,6 @@
 'use client';
 
 import { Carousel } from '@mantine/carousel';
-// import { useMediaQuery } from '@mantine/hooks';
 import { Paper, Title, Text, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import classes from './CardsCarousel.module.css';

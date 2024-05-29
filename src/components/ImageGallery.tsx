@@ -8,7 +8,7 @@ export function ImageGallery({ links }: ImageGalleryProps) {
   return (
     <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing="md" verticalSpacing="md">
       {links.map((link) => (
-        <Image radius="md" h={200} src={link} />
+        <Image radius="md" h={200} src={link} key={link} />
       ))}
     </SimpleGrid>
   );
