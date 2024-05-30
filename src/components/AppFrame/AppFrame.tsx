@@ -61,7 +61,7 @@ export function AppFrame({ children }: AppFrameProps) {
             <AppLogo />
             <LinkButton text="About" href="/about" visibleFrom="sm" />
           </Group>
-          <Group gap={mobile ? 'md' : 0}>
+          <Group gap={mobile ? 'xs' : 0}>
             {user &&
               (mobile ? (
                 <ActionIcon

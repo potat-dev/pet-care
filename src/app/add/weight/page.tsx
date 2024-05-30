@@ -31,6 +31,7 @@ export default function WeightForm() {
         <form onSubmit={form.onSubmit((values) => console.log(values))}>
           <Stack gap="sm" mt="xs">
             <NumberInput
+              // withAsterisk
               label="Weight"
               placeholder="Enter weight in kg"
               decimalScale={2}
@@ -40,6 +41,7 @@ export default function WeightForm() {
             />
 
             <DateTimePicker
+              // withAsterisk
               clearable
               defaultValue={new Date()}
               label="Date"

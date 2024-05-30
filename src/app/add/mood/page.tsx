@@ -40,7 +40,7 @@ export default function MoodPage() {
     <Container size="sm" px={0}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Card.Section withBorder inheritPadding py="xs">
-          <Title order={3}>Pet Mood</Title>
+          <Title order={3}>Pet mood</Title>
         </Card.Section>
         <form onSubmit={form.onSubmit((values) => console.log(values))}>
           <Stack gap="sm" mt="xs">
@@ -96,6 +96,7 @@ export default function MoodPage() {
             </Stack>
 
             <DateTimePicker
+              // withAsterisk
               clearable
               defaultValue={new Date()}
               label="Date"
