@@ -2,7 +2,7 @@
 
 import { Button, Group, Title, NumberInput, Card, Stack, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { DatePickerInput, DateTimePicker } from '@mantine/dates';
+import { DatePickerInput } from '@mantine/dates';
 
 export default function WeightForm() {
   const form = useForm({

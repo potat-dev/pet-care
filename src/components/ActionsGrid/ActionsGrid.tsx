@@ -5,7 +5,7 @@ import {
   UnstyledButton,
   Anchor,
   Group,
-  useMantineTheme,
+
   Grid,
 } from '@mantine/core';
 import {

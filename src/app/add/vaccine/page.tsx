@@ -2,8 +2,8 @@
 
 import { Button, Card, Container, Group, Stack, Title, TextInput, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { DatePickerInput, DateTimePicker } from '@mantine/dates';
-import React, { useState } from 'react';
+import { DatePickerInput } from '@mantine/dates';
+import React from 'react';
 
 export default function VaccinePage() {
   const form = useForm({

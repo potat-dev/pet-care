@@ -2,7 +2,7 @@
 
 import { Button, Card, Container, Group, Stack, Title, Textarea, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { DatePickerInput, DateTimePicker } from '@mantine/dates';
+import { DatePickerInput } from '@mantine/dates';
 import React from 'react';
 
 export default function SicknessPage() {
