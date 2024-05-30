@@ -3,6 +3,8 @@
 import { Button, Group, Title, NumberInput, Card, Stack, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { DatePickerInput } from '@mantine/dates';
+import { UsefulTips } from '@/components/UsefulTips';
+import tips from '@/data/useful';
 
 export default function WeightForm() {
   const form = useForm({
@@ -24,43 +26,47 @@ export default function WeightForm() {
 
   return (
     <Container size="xs" px={0}>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section withBorder inheritPadding py="xs">
-          <Title order={3}>Measure weight</Title>
-        </Card.Section>
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
-          <Stack gap="sm" mt="xs">
-            <NumberInput
-              // withAsterisk
-              label="Weight"
-              placeholder="Enter weight in kg"
-              clampBehavior="strict"
-              decimalScale={2}
-              step={0.1}
-              min={0}
-              key={form.key('weight')}
-              {...form.getInputProps('weight')}
-            />
+      <Stack>
+        <Card shadow="sm" padding="lg" radius="md" withBorder>
+          <Card.Section withBorder inheritPadding py="xs">
+            <Title order={3}>Measure Weight</Title>
+          </Card.Section>
+          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <Stack gap="sm" mt="xs">
+              <NumberInput
+                // withAsterisk
+                label="Weight"
+                placeholder="Enter weight in kg"
+                clampBehavior="strict"
+                decimalScale={2}
+                step={0.1}
+                min={0}
+                key={form.key('weight')}
+                {...form.getInputProps('weight')}
+              />
 
-            <DatePickerInput
-              // withAsterisk
-              clearable
-              defaultValue={new Date()}
-              label="Date"
-              placeholder="Pick date and time"
-              key={form.key('date')}
-              {...form.getInputProps('date')}
-            />
+              <DatePickerInput
+                // withAsterisk
+                clearable
+                defaultValue={new Date()}
+                label="Date"
+                placeholder="Pick date and time"
+                key={form.key('date')}
+                {...form.getInputProps('date')}
+              />
 
-            <Group justify="flex-end" mt="xs">
-              <Button variant="subtle" onClick={setToday}>
-                Set today
-              </Button>
-              <Button type="submit">Save</Button>
-            </Group>
-          </Stack>
-        </form>
-      </Card>
+              <Group justify="flex-end" mt="xs">
+                <Button variant="subtle" onClick={setToday}>
+                  Set today
+                </Button>
+                <Button type="submit">Save</Button>
+              </Group>
+            </Stack>
+          </form>
+        </Card>
+        <Title order={3}>Useful Tips</Title>
+        <UsefulTips items={tips.weight} />
+      </Stack>
     </Container>
   );
 }

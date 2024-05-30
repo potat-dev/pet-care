@@ -4,6 +4,8 @@ import { Button, Card, Container, Group, Slider, Stack, Title, Text } from '@man
 import { useForm } from '@mantine/form';
 import { DateTimePicker } from '@mantine/dates';
 import React from 'react';
+import { UsefulTips } from '@/components/UsefulTips';
+import tips from '@/data/useful';
 
 export default function MoodPage() {
   const form = useForm({
@@ -38,82 +40,86 @@ export default function MoodPage() {
 
   return (
     <Container size="xs" px={0}>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section withBorder inheritPadding py="xs">
-          <Title order={3}>Pet mood</Title>
-        </Card.Section>
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
-          <Stack gap="sm" mt="xs">
-            <Stack gap={0}>
-              <Text size="sm">Mood</Text>
-              <Slider
-                min={0}
-                max={10}
-                step={1}
-                label={(value) => `${value} - ${moodText(value)}`}
-                key={form.key('mood')}
-                {...form.getInputProps('mood')}
-                labelTransitionProps={{
-                  transition: 'skew-down',
-                  duration: 150,
-                  timingFunction: 'linear',
-                }}
+      <Stack>
+        <Card shadow="sm" padding="lg" radius="md" withBorder>
+          <Card.Section withBorder inheritPadding py="xs">
+            <Title order={3}>Pet mood</Title>
+          </Card.Section>
+          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <Stack gap="sm" mt="xs">
+              <Stack gap={0}>
+                <Text size="sm">Mood Record</Text>
+                <Slider
+                  min={0}
+                  max={10}
+                  step={1}
+                  label={(value) => `${value} - ${moodText(value)}`}
+                  key={form.key('mood')}
+                  {...form.getInputProps('mood')}
+                  labelTransitionProps={{
+                    transition: 'skew-down',
+                    duration: 150,
+                    timingFunction: 'linear',
+                  }}
+                />
+              </Stack>
+
+              <Stack gap={0}>
+                <Text size="sm">Activity</Text>
+                <Slider
+                  min={0}
+                  max={10}
+                  step={1}
+                  label={(value) => `${value} - ${moodText(value)}`}
+                  key={form.key('activity')}
+                  {...form.getInputProps('activity')}
+                  labelTransitionProps={{
+                    transition: 'skew-down',
+                    duration: 150,
+                    timingFunction: 'linear',
+                  }}
+                />
+              </Stack>
+
+              <Stack gap={0}>
+                <Text size="sm">Appetite</Text>
+                <Slider
+                  min={0}
+                  max={10}
+                  step={1}
+                  label={(value) => `${value} - ${moodText(value)}`}
+                  key={form.key('appetite')}
+                  {...form.getInputProps('appetite')}
+                  labelTransitionProps={{
+                    transition: 'skew-down',
+                    duration: 150,
+                    timingFunction: 'linear',
+                  }}
+                />
+              </Stack>
+
+              <DateTimePicker
+                // withAsterisk
+                clearable
+                defaultValue={new Date()}
+                label="Date"
+                placeholder="Pick date and time"
+                key={form.key('date')}
+                {...form.getInputProps('date')}
               />
+
+              <Group justify="flex-end" mt="xs">
+                <Button variant="subtle" onClick={setToday}>
+                  Set today
+                </Button>
+                <Button type="submit">Save</Button>
+              </Group>
             </Stack>
-
-            <Stack gap={0}>
-              <Text size="sm">Activity</Text>
-              <Slider
-                min={0}
-                max={10}
-                step={1}
-                label={(value) => `${value} - ${moodText(value)}`}
-                key={form.key('activity')}
-                {...form.getInputProps('activity')}
-                labelTransitionProps={{
-                  transition: 'skew-down',
-                  duration: 150,
-                  timingFunction: 'linear',
-                }}
-              />
-            </Stack>
-
-            <Stack gap={0}>
-              <Text size="sm">Appetite</Text>
-              <Slider
-                min={0}
-                max={10}
-                step={1}
-                label={(value) => `${value} - ${moodText(value)}`}
-                key={form.key('appetite')}
-                {...form.getInputProps('appetite')}
-                labelTransitionProps={{
-                  transition: 'skew-down',
-                  duration: 150,
-                  timingFunction: 'linear',
-                }}
-              />
-            </Stack>
-
-            <DateTimePicker
-              // withAsterisk
-              clearable
-              defaultValue={new Date()}
-              label="Date"
-              placeholder="Pick date and time"
-              key={form.key('date')}
-              {...form.getInputProps('date')}
-            />
-
-            <Group justify="flex-end" mt="xs">
-              <Button variant="subtle" onClick={setToday}>
-                Set today
-              </Button>
-              <Button type="submit">Save</Button>
-            </Group>
-          </Stack>
-        </form>
-      </Card>
+          </form>
+        </Card>
+        <Title order={2}>Useful Tips</Title>
+        <UsefulTips items={tips.mood} />
+      </Stack>
     </Container>
   );
 }

@@ -1,4 +1,4 @@
-import { UserData } from '@/components/interfaces/UserData';
+import { UserData } from '@/interfaces/UserData';
 
 const userdata: UserData[] = [
   {

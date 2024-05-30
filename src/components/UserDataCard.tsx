@@ -1,5 +1,5 @@
 import { Avatar, Card, Group, Stack, Title, Text } from '@mantine/core';
-import { UserData } from './interfaces/UserData';
+import { UserData } from '../interfaces/UserData';
 
 interface UserDataCardProps {
   user: UserData;

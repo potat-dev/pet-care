@@ -1,4 +1,4 @@
-import { Card, Text, UnstyledButton, Grid, useMantineTheme } from '@mantine/core';
+import { Text, UnstyledButton, Grid, useMantineTheme } from '@mantine/core';
 import {
   IconVaccine,
   IconPawFilled,

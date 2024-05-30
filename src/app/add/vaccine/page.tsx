@@ -4,6 +4,8 @@ import { Button, Card, Container, Group, Stack, Title, TextInput, Textarea } fro
 import { useForm } from '@mantine/form';
 import { DatePickerInput } from '@mantine/dates';
 import React from 'react';
+import { UsefulTips } from '@/components/UsefulTips';
+import tips from '@/data/useful';
 
 export default function VaccinePage() {
   const form = useForm({
@@ -27,63 +29,67 @@ export default function VaccinePage() {
 
   return (
     <Container size="sm" px={0}>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section withBorder inheritPadding py="xs">
-          <Title order={3}>Vaccination Record</Title>
-        </Card.Section>
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
-          <Stack gap="sm" mt="xs">
-            <TextInput
-              withAsterisk
-              label="Name"
-              placeholder="Enter vaccine name"
-              key={form.key('name')}
-              {...form.getInputProps('name')}
-            />
+      <Stack>
+        <Card shadow="sm" padding="lg" radius="md" withBorder>
+          <Card.Section withBorder inheritPadding py="xs">
+            <Title order={3}>Vaccination Record</Title>
+          </Card.Section>
+          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <Stack gap="sm" mt="xs">
+              <TextInput
+                withAsterisk
+                label="Name"
+                placeholder="Enter vaccine name"
+                key={form.key('name')}
+                {...form.getInputProps('name')}
+              />
 
-            <DatePickerInput
-              withAsterisk
-              clearable
-              defaultValue={new Date()}
-              label="Date"
-              placeholder="Pick date and time"
-              key={form.key('vaccinationDate')}
-              {...form.getInputProps('vaccinationDate')}
-            />
+              <DatePickerInput
+                withAsterisk
+                clearable
+                defaultValue={new Date()}
+                label="Date"
+                placeholder="Pick date and time"
+                key={form.key('vaccinationDate')}
+                {...form.getInputProps('vaccinationDate')}
+              />
 
-            <TextInput
-              label="Series/Lot Number (optional)"
-              placeholder="Enter series/lot number"
-              key={form.key('series')}
-              {...form.getInputProps('series')}
-            />
+              <TextInput
+                label="Series/Lot Number (optional)"
+                placeholder="Enter series/lot number"
+                key={form.key('series')}
+                {...form.getInputProps('series')}
+              />
 
-            <DatePickerInput
-              clearable
-              label="Next Vaccination"
-              placeholder="Pick date and time"
-              key={form.key('nextVaccinationDate')}
-              {...form.getInputProps('nextVaccinationDate')}
-              // value={nextVaccinationDate}
-            />
+              <DatePickerInput
+                clearable
+                label="Next Vaccination"
+                placeholder="Pick date and time"
+                key={form.key('nextVaccinationDate')}
+                {...form.getInputProps('nextVaccinationDate')}
+                // value={nextVaccinationDate}
+              />
 
-            <Textarea
-              label="Notes (optional)"
-              placeholder="Add any additional notes"
-              minRows={2}
-              key={form.key('notes')}
-              {...form.getInputProps('notes')}
-            />
+              <Textarea
+                label="Notes (optional)"
+                placeholder="Add any additional notes"
+                minRows={2}
+                key={form.key('notes')}
+                {...form.getInputProps('notes')}
+              />
 
-            <Group justify="flex-end" mt="xs">
-              <Button variant="subtle" onClick={setToday}>
-                Set today
-              </Button>
-              <Button type="submit">Save</Button>
-            </Group>
-          </Stack>
-        </form>
-      </Card>
+              <Group justify="flex-end" mt="xs">
+                <Button variant="subtle" onClick={setToday}>
+                  Set today
+                </Button>
+                <Button type="submit">Save</Button>
+              </Group>
+            </Stack>
+          </form>
+        </Card>
+        <Title order={2}>Useful Tips</Title>
+        <UsefulTips items={tips.vaccine} />
+      </Stack>
     </Container>
   );
 }
