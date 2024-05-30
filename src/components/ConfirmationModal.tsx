@@ -2,7 +2,7 @@
 
 import { Text } from '@mantine/core';
 import { modals } from '@mantine/modals';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export const openAddConfirmationModal = (title: string) =>
   modals.openConfirmModal({
@@ -14,9 +14,9 @@ export const openAddConfirmationModal = (title: string) =>
     ),
     labels: { confirm: 'Dashboard', cancel: 'OK' },
     cancelProps: { variant: 'subtle', color: 'gray' },
-    confirmProps: { variant: 'light', },
-    onConfirm: () => {
-      const router = useRouter();
-      router.push('/'); // Navigate to the dashboard route
-    },
+    confirmProps: {
+      variant: 'light',
+      component: Link, // Mantine devs forgot to add this prop to the type definition
+      href: '/',
+    } as any, // So I need a type assertion to bypass the type check
   });

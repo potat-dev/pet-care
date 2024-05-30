@@ -28,7 +28,7 @@ export default function WeightForm() {
   return (
     <Container size="xs" px={0}>
       <Stack>
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Card shadow="sm" padding="lg" radius="md">
           <Card.Section withBorder inheritPadding py="xs">
             <Title order={3}>Measure Weight</Title>
           </Card.Section>

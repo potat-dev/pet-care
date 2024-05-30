@@ -32,7 +32,7 @@ export default function VaccinePage() {
     <Container size="sm" px={0}>
       <Stack>
         <Card shadow="sm" padding="lg" radius="md" withBorder>
-          <Card.Section withBorder inheritPadding py="xs">
+          <Card.Section inheritPadding py="xs">
             <Title order={3}>Vaccination Record</Title>
           </Card.Section>
           <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Vaccine added!'))}>

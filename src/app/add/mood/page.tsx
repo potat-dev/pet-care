@@ -43,7 +43,7 @@ export default function MoodPage() {
     <Container size="xs" px={0}>
       <Stack>
         <Card shadow="sm" padding="lg" radius="md" withBorder>
-          <Card.Section withBorder inheritPadding py="xs">
+          <Card.Section inheritPadding py="xs">
             <Title order={3}>Pet mood</Title>
           </Card.Section>
           <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Mood record added!'))}>
