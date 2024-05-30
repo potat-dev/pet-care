@@ -1,6 +1,6 @@
 import { AreaChart } from '@mantine/charts';
 import { Card, Title } from '@mantine/core';
-import { weight } from '@/data/weight';
+import { weight } from '@/data/graphs/weight';
 
 export default function WeightCard() {
   return (

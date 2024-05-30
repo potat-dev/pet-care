@@ -53,34 +53,4 @@ export const weight = [
     Djerik: 10320,
     Brosha: 2450,
   },
-  {
-    date: 'Jun 2',
-    Marcel: 6900,
-    Djerik: 10400,
-    Brosha: 2550,
-  },
-  {
-    date: 'Jun 9',
-    Marcel: 6850,
-    Djerik: 10370,
-    Brosha: 2500,
-  },
-  {
-    date: 'Jun 16',
-    Marcel: 6950,
-    Djerik: 10450,
-    Brosha: 2400,
-  },
-  {
-    date: 'Jun 23',
-    Marcel: 7000,
-    Djerik: 10420,
-    Brosha: 2450,
-  },
-  {
-    date: 'Jun 30',
-    Marcel: 7050,
-    Djerik: 10480,
-    Brosha: 2350,
-  },
 ];
