@@ -56,7 +56,7 @@ export default function AddPetPage() {
                 withAsterisk
                 label="Species"
                 placeholder="Select species"
-                data={['Cat', 'Dog', 'Bird', 'Other']}
+                data={['Cat', 'Dog', 'Bird', 'Elephant', 'Other']}
                 key={form.key('species')}
                 {...form.getInputProps('species')}
               />
@@ -81,7 +81,7 @@ export default function AddPetPage() {
                 withAsterisk
                 label="Sex"
                 placeholder="Select sex"
-                data={['Male', 'Female']}
+                data={['Male', 'Female', 'Attack Helicopter 🚁']}
                 key={form.key('sex')}
                 {...form.getInputProps('sex')}
               />
