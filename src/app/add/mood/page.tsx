@@ -6,6 +6,7 @@ import { DateTimePicker } from '@mantine/dates';
 import React from 'react';
 import { UsefulTips } from '@/components/UsefulTips';
 import tips from '@/data/useful';
+import { openAddConfirmationModal } from '@/components/ConfirmationModal';
 
 export default function MoodPage() {
   const form = useForm({
@@ -45,7 +46,7 @@ export default function MoodPage() {
           <Card.Section withBorder inheritPadding py="xs">
             <Title order={3}>Pet mood</Title>
           </Card.Section>
-          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+          <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Mood record added!'))}>
             <Stack gap="sm" mt="xs">
               <Stack gap={0}>
                 <Text size="sm">Mood Record</Text>
@@ -109,10 +110,12 @@ export default function MoodPage() {
               />
 
               <Group justify="flex-end" mt="xs">
-                <Button variant="subtle" onClick={setToday}>
+                <Button variant="subtle" color="gray" onClick={setToday}>
                   Set today
                 </Button>
-                <Button type="submit">Save</Button>
+                <Button type="submit" variant="light">
+                  Save
+                </Button>
               </Group>
             </Stack>
           </form>

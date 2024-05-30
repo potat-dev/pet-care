@@ -6,6 +6,7 @@ import { DatePickerInput } from '@mantine/dates';
 import React from 'react';
 import { UsefulTips } from '@/components/UsefulTips';
 import tips from '@/data/useful';
+import { openAddConfirmationModal } from '@/components/ConfirmationModal';
 
 export default function VaccinePage() {
   const form = useForm({
@@ -34,7 +35,7 @@ export default function VaccinePage() {
           <Card.Section withBorder inheritPadding py="xs">
             <Title order={3}>Vaccination Record</Title>
           </Card.Section>
-          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+          <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Vaccine added!'))}>
             <Stack gap="sm" mt="xs">
               <TextInput
                 withAsterisk
@@ -79,10 +80,12 @@ export default function VaccinePage() {
               />
 
               <Group justify="flex-end" mt="xs">
-                <Button variant="subtle" onClick={setToday}>
+                <Button variant="subtle" color="gray" onClick={setToday}>
                   Set today
                 </Button>
-                <Button type="submit">Save</Button>
+                <Button type="submit" variant="light">
+                  Save
+                </Button>
               </Group>
             </Stack>
           </form>

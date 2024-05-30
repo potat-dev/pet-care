@@ -5,6 +5,7 @@ import { useForm } from '@mantine/form';
 import { DatePickerInput } from '@mantine/dates';
 import { UsefulTips } from '@/components/UsefulTips';
 import tips from '@/data/useful';
+import { openAddConfirmationModal } from '@/components/ConfirmationModal';
 
 export default function WeightForm() {
   const form = useForm({
@@ -31,7 +32,7 @@ export default function WeightForm() {
           <Card.Section withBorder inheritPadding py="xs">
             <Title order={3}>Measure Weight</Title>
           </Card.Section>
-          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+          <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Weight record added!'))}>
             <Stack gap="sm" mt="xs">
               <NumberInput
                 // withAsterisk
@@ -56,10 +57,12 @@ export default function WeightForm() {
               />
 
               <Group justify="flex-end" mt="xs">
-                <Button variant="subtle" onClick={setToday}>
+                <Button variant="subtle" color="gray" onClick={setToday}>
                   Set today
                 </Button>
-                <Button type="submit">Save</Button>
+                <Button type="submit" variant="light">
+                  Save
+                </Button>
               </Group>
             </Stack>
           </form>

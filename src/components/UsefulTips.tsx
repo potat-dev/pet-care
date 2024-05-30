@@ -5,12 +5,9 @@ import { InfoItem } from '@/interfaces/InfoItem';
 
 interface InfoItemProps {
   items: InfoItem[];
-  shuffle?: boolean;
 }
 
-export function UsefulTips({ items: initValues, shuffle = true }: InfoItemProps) {
-  const values = shuffle ? initValues.sort(() => Math.random() - 0.5) : initValues;
-
+export function UsefulTips({ items: values }: InfoItemProps) {
   const items = values.map((item) => (
     <Accordion.Item key={item.value} value={item.value}>
       <Accordion.Control icon={item.emoji}>{item.value}</Accordion.Control>

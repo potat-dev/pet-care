@@ -1,5 +1,7 @@
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
+
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -30,7 +32,9 @@ export default function RootLayout({ children }: { children: any }) {
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
           <AuthContextProvider>
-            <AppFrame>{children}</AppFrame>
+            <ModalsProvider>
+              <AppFrame>{children}</AppFrame>
+            </ModalsProvider>
           </AuthContextProvider>
         </MantineProvider>
         <SpeedInsights />
