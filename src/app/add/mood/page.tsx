@@ -42,12 +42,13 @@ export default function MoodPage() {
   return (
     <Container size="xs" px={0}>
       <Stack>
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
-          <Card.Section inheritPadding py="xs">
+        <Card padding="lg" radius="md">
+          <Card.Section inheritPadding py="sm">
             <Title order={3}>Pet mood</Title>
           </Card.Section>
+
           <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Mood record added!'))}>
-            <Stack gap="sm" mt="xs">
+            <Stack gap="sm">
               <Stack gap={0}>
                 <Text size="sm">Mood Record</Text>
                 <Slider

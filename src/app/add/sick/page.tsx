@@ -32,12 +32,13 @@ export default function SicknessPage() {
   return (
     <Container size="sm" px={0}>
       <Stack>
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
-          <Card.Section inheritPadding py="xs">
+        <Card padding="lg" radius="md">
+          <Card.Section inheritPadding py="sm">
             <Title order={3}>Sickness Record</Title>
           </Card.Section>
+
           <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Sickness record added!'))}>
-            <Stack gap="sm" mt="xs">
+            <Stack gap="sm">
               <TextInput
                 withAsterisk
                 label="Name"

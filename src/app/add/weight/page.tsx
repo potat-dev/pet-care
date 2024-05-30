@@ -28,12 +28,13 @@ export default function WeightForm() {
   return (
     <Container size="xs" px={0}>
       <Stack>
-        <Card shadow="sm" padding="lg" radius="md">
-          <Card.Section withBorder inheritPadding py="xs">
+        <Card padding="lg" radius="md">
+          <Card.Section inheritPadding py="sm">
             <Title order={3}>Measure Weight</Title>
           </Card.Section>
+
           <form onSubmit={form.onSubmit(() => openAddConfirmationModal('Weight record added!'))}>
-            <Stack gap="sm" mt="xs">
+            <Stack gap="sm">
               <NumberInput
                 // withAsterisk
                 label="Weight"

@@ -6,8 +6,8 @@ import { ActionsGrid } from '@/components/ActionsGrid/ActionsGrid';
 export default function HomePage() {
   return (
     <Container size="xs" px={0}>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section withBorder inheritPadding py="xs" mb="lg">
+      <Card padding="lg" radius="md">
+        <Card.Section inheritPadding py="sm">
           <Title order={3}>What do want to add?</Title>
         </Card.Section>
         <ActionsGrid />
