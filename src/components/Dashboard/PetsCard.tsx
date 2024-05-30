@@ -5,7 +5,7 @@ import { friendPets, myPets } from '@/data/petsdata';
 export default function PetsCard() {
   return (
     <Card padding="lg" radius="md">
-      <Card.Section inheritPadding py="sm">
+      <Card.Section inheritPadding py="sm" pb="xs">
         <Title order={3}>Favorite Pets</Title>
       </Card.Section>
 

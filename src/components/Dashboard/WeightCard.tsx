@@ -5,7 +5,7 @@ import { weight } from '@/data/graphs/weight';
 export default function WeightCard() {
   return (
     <Card padding="lg" radius="md">
-      <Card.Section inheritPadding pt="sm" pb={0}>
+      <Card.Section inheritPadding py="sm">
         <Title order={3}>Weight Graph</Title>
       </Card.Section>
       <AreaChart
