@@ -9,16 +9,16 @@ import VaccinationCard from './VaccinationCard';
 export function Dashboard() {
   return (
     <Grid columns={10}>
-      <Grid.Col span={4}>
+      <Grid.Col span={{ base: 10, sm: 5, md: 4 }}>
         <PetsCard />
       </Grid.Col>
-      <Grid.Col span={6}>
+      <Grid.Col span={{ base: 10, sm: 5, md: 6 }}>
         <WeightCard />
       </Grid.Col>
-      <Grid.Col span={6}>
+      <Grid.Col span={{ base: 10, sm: 5, md: 6 }}>
         <MoodCard />
       </Grid.Col>
-      <Grid.Col span={4}>
+      <Grid.Col span={{ base: 10, sm: 5, md: 4 }}>
         <VaccinationCard />
       </Grid.Col>
     </Grid>

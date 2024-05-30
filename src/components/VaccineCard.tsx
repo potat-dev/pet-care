@@ -10,7 +10,14 @@ interface VaccineCardProps {
 
 export function VaccineCard({ vaccine }: VaccineCardProps) {
   return (
-    <Card shadow="sm" padding="md" radius="md" withBorder>
+    <Card
+      shadow="sm"
+      padding="md"
+      py={{ base: 'xs', sm: 'md' }}
+      pr={{ base: 'xs', sm: 'md' }}
+      radius="md"
+      withBorder
+    >
       <Group justify="space-between">
         <Stack gap={1}>
           <Title order={4}>{vaccine.name}</Title>

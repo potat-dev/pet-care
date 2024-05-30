@@ -15,6 +15,8 @@ export function PetCard({ pet }: PetCardProps) {
       href={`/profile/${pet.owner}`}
       shadow="sm"
       padding="md"
+      py={{ base: 'xs', sm: 'md' }}
+      pr={{ base: 'xs', sm: 'md' }}
       radius="md"
       withBorder
     >
