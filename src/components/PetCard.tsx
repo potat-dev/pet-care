@@ -1,7 +1,7 @@
 'use client';
 
-import { Title, Text, Stack, Avatar, Card, Group } from '@mantine/core';
 import Link from 'next/link';
+import { Title, Text, Stack, Avatar, Card, Group } from '@mantine/core';
 import { PetData } from '@/interfaces/PetData';
 
 interface PetCardProps {

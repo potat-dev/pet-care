@@ -1,7 +1,6 @@
 'use client';
 
 import { Title, Text, Stack, Card, Group, Avatar } from '@mantine/core';
-
 import { VaccineData } from '@/interfaces/VaccineData';
 
 interface VaccineCardProps {
