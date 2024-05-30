@@ -3,7 +3,7 @@ import { Dashboard } from '@/components/Dashboard/Dashboard';
 
 export default function HomePage() {
   return (
-    <Container size="lg" px={0}>
+    <Container size="xl" px={0}>
       <Dashboard />
     </Container>
   );
