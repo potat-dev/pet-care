@@ -2,7 +2,7 @@
 
 import { Button, Group, Title, NumberInput, Card, Stack, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { DateTimePicker } from '@mantine/dates';
+import { DatePickerInput, DateTimePicker } from '@mantine/dates';
 
 export default function WeightForm() {
   const form = useForm({
@@ -34,13 +34,15 @@ export default function WeightForm() {
               // withAsterisk
               label="Weight"
               placeholder="Enter weight in kg"
+              clampBehavior="strict"
               decimalScale={2}
               step={0.1}
+              min={0}
               key={form.key('weight')}
               {...form.getInputProps('weight')}
             />
 
-            <DateTimePicker
+            <DatePickerInput
               // withAsterisk
               clearable
               defaultValue={new Date()}

@@ -2,7 +2,7 @@
 
 import { Button, Card, Container, Group, Stack, Title, TextInput, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { DateTimePicker } from '@mantine/dates';
+import { DatePickerInput, DateTimePicker } from '@mantine/dates';
 import React, { useState } from 'react';
 
 export default function VaccinePage() {
@@ -41,7 +41,7 @@ export default function VaccinePage() {
               {...form.getInputProps('name')}
             />
 
-            <DateTimePicker
+            <DatePickerInput
               withAsterisk
               clearable
               defaultValue={new Date()}
@@ -58,7 +58,7 @@ export default function VaccinePage() {
               {...form.getInputProps('series')}
             />
 
-            <DateTimePicker
+            <DatePickerInput
               clearable
               label="Next Vaccination"
               placeholder="Pick date and time"
