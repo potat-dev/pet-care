@@ -1,13 +1,4 @@
-import {
-  Card,
-  Text,
-  SimpleGrid,
-  UnstyledButton,
-  Anchor,
-  Group,
-
-  Grid,
-} from '@mantine/core';
+import { Card, Text, UnstyledButton, Grid, useMantineTheme } from '@mantine/core';
 import {
   IconVaccine,
   IconPawFilled,
@@ -15,21 +6,24 @@ import {
   IconReportMedical,
   IconMoodSmile,
 } from '@tabler/icons-react';
+import Link from 'next/link';
 import classes from './ActionsGrid.module.css';
 
 const actions = [
-  { title: 'Weight', icon: IconWeight, color: 'violet' },
-  { title: 'Mood', icon: IconMoodSmile, color: 'indigo' },
-  { title: 'Sickness', icon: IconReportMedical, color: 'blue' },
-  { title: 'Vaccine', icon: IconVaccine, color: 'green' },
-  { title: 'New Pet', icon: IconPawFilled, color: 'teal' },
+  { title: 'Weight', icon: IconWeight, color: 'blue', href: '/weight' },
+  { title: 'Mood', icon: IconMoodSmile, color: 'yellow', href: '/mood' },
+  { title: 'Sickness', icon: IconReportMedical, color: 'red', href: '/sick' },
+  { title: 'Vaccine', icon: IconVaccine, color: 'teal', href: '/vaccine' },
+  { title: 'New Pet', icon: IconPawFilled, color: 'violet', href: '/pet' },
 ];
 
 export function ActionsGrid() {
+  const theme = useMantineTheme();
+
   const items = actions.map((item) => (
-    <Grid.Col span={6}>
-      <UnstyledButton key={item.title} className={classes.item}>
-        <item.icon size="2rem" />
+    <Grid.Col span={6} key={item.title}>
+      <UnstyledButton className={classes.item} component={Link} href={`/add/${item.href}`}>
+        <item.icon color={theme.colors[item.color][6]} size="2rem" />
         <Text size="xs" mt={7}>
           {item.title}
         </Text>
@@ -37,23 +31,5 @@ export function ActionsGrid() {
     </Grid.Col>
   ));
 
-  return (
-    <Card>
-      <Grid grow>{items}</Grid>
-    </Card>
-  );
-
-  return (
-    <Card withBorder radius="md" className={classes.card}>
-      <Group justify="space-between">
-        <Text className={classes.title}>Services</Text>
-        <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
-          + 21 other services
-        </Anchor>
-      </Group>
-      <SimpleGrid cols={2} mt="md">
-        {items}
-      </SimpleGrid>
-    </Card>
-  );
+  return <Grid grow>{items}</Grid>;
 }
