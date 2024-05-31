@@ -23,11 +23,12 @@ function LoginButton() {
 
   return (
     <Button
+      onClick={signIn}
       variant="subtle"
       color="gray"
       size="md"
       loading={loading}
-      onClick={signIn}
+      loaderProps={{ type: 'dots' }}
       rightSection={<IconChevronRight {...iconProps} />}
     >
       Login
@@ -65,6 +66,7 @@ export function UserMenu() {
           color="gray"
           size="md"
           loading={loading}
+          loaderProps={{ type: 'dots' }}
           rightSection={<IconChevronDown {...iconProps} />}
         >
           {user ? user.displayName : 'Login'}

@@ -1,6 +1,7 @@
 'use client';
 
-import { Menu, Button } from '@mantine/core';
+import { Menu, Button, ActionIcon, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import {
   IconVaccine,
   IconPawFilled,
@@ -17,6 +18,17 @@ const iconProps = {
 };
 
 export function AddMenu() {
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
+  if (mobile) {
+    return (
+      <ActionIcon variant="subtle" color="gray" size="xl" radius="md" component={Link} href="/add">
+        <IconPlus style={{ width: '70%', height: '70%' }} stroke={1.5} />
+      </ActionIcon>
+    );
+  }
+
   return (
     <Menu trigger="hover" shadow="md" width={200}>
       <Menu.Target>

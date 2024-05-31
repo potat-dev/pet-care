@@ -1,11 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { ActionIcon, AppShell, Burger, Button, Group, useMantineTheme } from '@mantine/core';
-import { useDisclosure, useMediaQuery } from '@mantine/hooks';
-// import { IconMenu2 as IconMenu } from '@tabler/icons-react';
+import { AppShell, Burger, Button, Group } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 
-import { IconPlus } from '@tabler/icons-react';
 import { AppLogo } from '@/components/AppLogo';
 import { UserMenu } from '@/components/UserMenu';
 
@@ -45,9 +43,6 @@ export function AppFrame({ children }: AppFrameProps) {
   const [opened, { toggle }] = useDisclosure();
   const { user } = useAuthContext();
 
-  const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-
   return (
     <AppShell
       header={{ height: 60 }}
@@ -59,24 +54,10 @@ export function AppFrame({ children }: AppFrameProps) {
           <Group gap={0}>
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
             <AppLogo />
-            <LinkButton text="About" href="/about" visibleFrom="sm" />
+            <LinkButton text="Dashboard" href="/dashboard" visibleFrom="sm" />
           </Group>
-          <Group gap={mobile ? 'xs' : 0}>
-            {user &&
-              (mobile ? (
-                <ActionIcon
-                  variant="subtle"
-                  color="gray"
-                  size="xl"
-                  radius="md"
-                  component={Link}
-                  href="/add"
-                >
-                  <IconPlus style={{ width: '70%', height: '70%' }} stroke={1.5} />
-                </ActionIcon>
-              ) : (
-                <AddMenu />
-              ))}
+          <Group gap={0}>
+            {user && <AddMenu />}
             <UserMenu />
           </Group>
         </Group>
@@ -84,8 +65,8 @@ export function AppFrame({ children }: AppFrameProps) {
 
       <AppShell.Navbar py="md" px={4}>
         <LinkButton text="Home" href="/" onClick={toggle} />
-        <LinkButton text="Pets" href="/pets" onClick={toggle} />
-        <LinkButton text="Friends" href="/friends" onClick={toggle} />
+        <LinkButton text="Dashboard" href="/dashboard" onClick={toggle} />
+        <LinkButton text="Profile" href="/profile/denis" onClick={toggle} />
         <LinkButton text="Settings" href="/settings" onClick={toggle} />
         <LinkButton text="About" href="/about" onClick={toggle} />
       </AppShell.Navbar>

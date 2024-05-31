@@ -14,8 +14,8 @@ export default function WeightCard() {
         dataKey="date"
         withLegend
         series={[
-          { name: 'Marcel', color: 'indigo.6' },
-          { name: 'Brosha', color: 'blue.6' },
+          { name: 'Brosha', color: 'indigo.6' },
+          { name: 'Marcel', color: 'blue.6' },
           { name: 'Djerik', color: 'teal.6' },
         ]}
         curveType="monotone"
