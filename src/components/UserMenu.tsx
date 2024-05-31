@@ -36,7 +36,7 @@ function LoginButton() {
   );
 }
 
-export function UserMenu() {
+export function UserMenu({ onClick }: { onClick?: () => void }) {
   const { user, loading, signOut } = useAuthContext();
   const { toggleColorScheme } = useMantineColorScheme();
 
@@ -54,6 +54,7 @@ export function UserMenu() {
         src={user?.photoURL}
         component={Link}
         href="/profile/denis"
+        onClick={onClick}
       />
     );
   }

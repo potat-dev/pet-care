@@ -40,7 +40,7 @@ function LinkButton({ text, href, onClick, visibleFrom }: LinkButtonProps) {
 }
 
 export function AppFrame({ children }: AppFrameProps) {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle, close }] = useDisclosure();
   const { user } = useAuthContext();
 
   return (
@@ -53,12 +53,12 @@ export function AppFrame({ children }: AppFrameProps) {
         <Group className={classes.header} px="md">
           <Group gap={0}>
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <AppLogo />
-            <LinkButton text="Dashboard" href="/dashboard" visibleFrom="sm" />
+            <AppLogo onClick={close} />
+            {user && <LinkButton text="Dashboard" href="/dashboard" visibleFrom="sm" />}
           </Group>
           <Group gap={0}>
-            {user && <AddMenu />}
-            <UserMenu />
+            {user && <AddMenu onClick={close} />}
+            <UserMenu onClick={close} />
           </Group>
         </Group>
       </AppShell.Header>

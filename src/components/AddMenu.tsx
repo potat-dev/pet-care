@@ -17,13 +17,22 @@ const iconProps = {
   size: '1rem',
 };
 
-export function AddMenu() {
+export function AddMenu({ onClick }: { onClick?: () => void }) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
   if (mobile) {
     return (
-      <ActionIcon variant="subtle" color="gray" size="xl" radius="md" component={Link} href="/add">
+      <ActionIcon
+        variant="subtle"
+        color="gray"
+        size="xl"
+        radius="md"
+        mr="xs"
+        component={Link}
+        href="/add"
+        onClick={onClick}
+      >
         <IconPlus style={{ width: '70%', height: '70%' }} stroke={1.5} />
       </ActionIcon>
     );
