@@ -2,105 +2,105 @@ const tips = {
   mood: [
     {
       emoji: '😄',
-      value: 'Наблюдайте за изменениями',
+      value: 'Watch for changes',
       description:
-        'Регулярно отслеживая настроение питомца, вы сможете заметить изменения в его поведении и вовремя обратиться к ветеринару.',
+        "By regularly monitoring your pet's mood, you will be able to notice changes in their behavior and consult a veterinarian in time.",
     },
     {
       emoji: '🎾',
-      value: 'Активность и игры',
+      value: 'Activity and games',
       description:
-        'Регулярные игры и физическая активность положительно влияют на настроение и общее состояние питомца.',
+        'Regular games and physical activity have a positive effect on the mood and general condition of the pet.',
     },
     {
       emoji: '❤️',
-      value: 'Любовь и забота',
+      value: 'Love and care',
       description:
-        'Проводите время с вашим питомцем, ласкайте его, разговаривайте. Ваша любовь и забота - залог его хорошего настроения.',
+        'Spend time with your pet, pet it, talk to it. Your love and care are the key to his good mood.',
     },
     {
       emoji: '🍎',
-      value: 'Сбалансированное питание',
+      value: 'Balanced diet',
       description:
-        'Правильное питание - основа здоровья и хорошего настроения. Подберите корм, который подходит вашему питомцу по возрасту, породе и уровню активности.',
+        "Proper nutrition is the foundation of health and good mood. Choose a food that is right for your pet's age, breed, and activity level.",
     },
   ],
   sick: [
     {
       emoji: '🌡️',
-      value: 'Измеряйте температуру',
+      value: 'Measure temperature',
       description:
-        'Регулярно измеряйте температуру питомца при недомогании. Повышенная или пониженная температура может быть признаком серьезного заболевания.',
+        "Regularly measure your pet's temperature when they are unwell. Elevated or lowered temperature can be a sign of a serious illness.",
     },
     {
       emoji: '💧',
-      value: 'Обеспечьте доступ к воде',
+      value: 'Provide access to water',
       description:
-        'Убедитесь, что у питомца всегда есть доступ к свежей воде, особенно при рвоте, диарее или отказе от еды.',
+        'Make sure your pet has access to fresh water at all times, especially when vomiting, having diarrhea, or refusing to eat.',
     },
     {
       emoji: '🍲',
-      value: 'Не заставляйте есть',
+      value: 'Do not force feed',
       description:
-        'Не нужно заставлять питомца есть, если у него нет аппетита. Лучше предложить легкую пищу, когда он проголодается.',
+        'Do not force your pet to eat if it has no appetite. It is better to offer light food when he is hungry.',
     },
     {
       emoji: '🏥',
-      value: 'Обратитесь к ветеринару',
+      value: 'Contact your veterinarian',
       description:
-        'При любых сомнениях или ухудшении состояния питомца не занимайтесь самолечением и обратитесь к ветеринару.',
+        "If you have any doubts or if your pet's condition worsens, do not self-medicate and consult a veterinarian.",
     },
   ],
   vaccine: [
     {
       emoji: '🗓️',
-      value: 'Следите за графиком',
+      value: 'Keep track of the schedule',
       description:
-        'Своевременная вакцинация - залог здоровья вашего питомца. Следите за графиком прививок и не пропускайте назначенные визиты к ветеринару.',
+        "Timely vaccination is the key to your pet's health. Keep track of your vaccination schedule and don't miss scheduled visits to the veterinarian.",
     },
     {
       emoji: '💉',
-      value: 'Не все вакцины одинаковы',
+      value: 'Not all vaccines are created equal',
       description:
-        'Существуют разные типы вакцин для разных заболеваний и возрастов. Ветеринар поможет подобрать оптимальный вариант для вашего питомца.',
+        'There are different types of vaccines for different diseases and ages. The veterinarian will help you choose the best option for your pet.',
     },
     {
       emoji: '🌡️',
-      value: 'Наблюдайте за состоянием',
+      value: 'Monitor the condition',
       description:
-        'После вакцинации важно следить за состоянием питомца. Небольшое повышение температуры или вялость в первые дни - нормальное явление.',
+        "It is important to monitor your pet's condition after vaccination. A slight increase in temperature or lethargy in the early days is normal.",
     },
     {
       emoji: '🐶',
-      value: 'Защитите от болезней',
+      value: 'Protect from disease',
       description:
-        'Вакцинация помогает защитить вашего питомца от опасных инфекционных заболеваний, которые могут привести к серьезным последствиям.',
+        'Vaccination helps protect your pet from dangerous infectious diseases that can lead to serious consequences.',
     },
   ],
   weight: [
     {
       emoji: '⚖️',
-      value: 'Регулярное взвешивание',
+      value: 'Regular weighing',
       description:
-        'Регулярно взвешивайте питомца, чтобы контролировать его вес и вовремя заметить изменения, которые могут свидетельствовать о проблемах со здоровьем.',
+        'Weigh your pet regularly to monitor their weight and spot any changes that may indicate health problems in time.',
     },
     {
       emoji: '🍲',
-      value: 'Контроль порций',
+      value: 'Portion control',
       description:
-        'Следите за размером порций и не перекармливайте питомца. Переедание может привести к ожирению и проблемам со здоровьем.',
+        'Watch the portion sizes and do not overfeed your pet. Overeating can lead to obesity and health problems.',
     },
     {
       emoji: '🏃‍♀️',
-      value: 'Физическая активность',
+      value: 'Physical activity',
       description:
-        'Обеспечьте питомцу достаточный уровень физической активности. Регулярные прогулки, игры и тренировки помогут поддерживать здоровый вес.',
+        'Provide your pet with an adequate level of physical activity. Regular walks, games and training will help maintain a healthy weight.',
     },
     {
       emoji: '🍎',
-      value: 'Правильный корм',
+      value: 'Proper food',
       description:
-        'Подберите корм, который подходит вашему питомцу по возрасту, породе, уровню активности и состоянию здоровья. Обратитесь к ветеринару за консультацией.',
+        "Choose a food that is right for your pet's age, breed, activity level, and health condition. Consult your veterinarian for advice.",
     },
   ],
 };

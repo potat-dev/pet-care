@@ -17,6 +17,6 @@ export const openAddConfirmationModal = (title: string) =>
     confirmProps: {
       variant: 'light',
       component: Link, // Mantine devs forgot to add this prop to the type definition
-      href: '/',
+      href: '/dashboard',
     } as any, // So I need a type assertion to bypass the type check
   });
