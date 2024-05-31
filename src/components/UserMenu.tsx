@@ -3,7 +3,7 @@
 import { Avatar, Menu, Button, useMantineColorScheme, useMantineTheme } from '@mantine/core';
 import {
   IconUser,
-  IconSettings2 as IconSettings,
+  IconChartLine as IconChart,
   IconLogout,
   IconMoon,
   IconChevronDown,
@@ -78,8 +78,8 @@ export function UserMenu({ onClick }: { onClick?: () => void }) {
         <Menu.Item leftSection={<IconUser {...iconProps} />} component={Link} href="/profile/denis">
           Profile
         </Menu.Item>
-        <Menu.Item leftSection={<IconSettings {...iconProps} />} component={Link} href="/settings">
-          Settings
+        <Menu.Item leftSection={<IconChart {...iconProps} />} component={Link} href="/dashboard">
+          Dashboard
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item leftSection={<IconMoon {...iconProps} />} onClick={toggleColorScheme}>

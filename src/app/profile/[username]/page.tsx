@@ -1,6 +1,6 @@
 'use client';
 
-import { Title, Container, Stack, Space } from '@mantine/core';
+import { Title, Container, Stack } from '@mantine/core';
 import { CardsCarousel } from '@/components/CardsCarousel/CardsCarousel';
 import { ImageGallery } from '@/components/ImageGallery';
 import userdata from '@/data/userdata';
@@ -18,7 +18,7 @@ export default function HomePage({ params }: { params: ProfilePageProps }) {
   return (
     <>
       <Container size="md" px={0}>
-        <Stack>
+        <Stack pb="xl">
           <UserDataCard user={userData} />
 
           <Title order={2}>Best Moments</Title>
@@ -30,7 +30,9 @@ export default function HomePage({ params }: { params: ProfilePageProps }) {
           <Title order={2}>Friends</Title>
           <FriendsGrid friends={userData.friends} />
 
-          <Space h="xl" />
+          <Title order={4} ta="center" c="dimmed" m="xl">
+            That&apos;s all for now! Check back later for more updates.
+          </Title>
         </Stack>
       </Container>
     </>

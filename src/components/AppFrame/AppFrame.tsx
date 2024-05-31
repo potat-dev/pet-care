@@ -63,12 +63,12 @@ export function AppFrame({ children }: AppFrameProps) {
         </Group>
       </AppShell.Header>
 
-      <AppShell.Navbar py="md" px={4}>
+      <AppShell.Navbar py="md" px="md">
         <LinkButton text="Home" href="/" onClick={toggle} />
         <LinkButton text="Dashboard" href="/dashboard" onClick={toggle} />
         <LinkButton text="Profile" href="/profile/denis" onClick={toggle} />
-        <LinkButton text="Settings" href="/settings" onClick={toggle} />
-        <LinkButton text="About" href="/about" onClick={toggle} />
+        <LinkButton text="Measure" href="/add" onClick={toggle} />
+        <LinkButton text="New Pet" href="/add/pet" onClick={toggle} />
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>
