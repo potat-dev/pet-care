@@ -15,8 +15,16 @@ import {
 import { useForm } from '@mantine/form';
 import { DatePickerInput } from '@mantine/dates';
 import { openAddConfirmationModal } from '@/components/ConfirmationModal';
+import { NotSignedCard } from '@/components/NotSignedCard';
+import { useAuthContext } from '@/firebase/context';
+import { LoadingSkeleton } from '@/components/LoadingSkeleton';
 
 export default function AddPetPage() {
+  const { user, loading } = useAuthContext();
+
+  if (loading) return <LoadingSkeleton />;
+  if (!loading && !user) return <NotSignedCard />;
+
   const form = useForm({
     initialValues: {
       name: '',
@@ -105,6 +113,7 @@ export default function AddPetPage() {
             </Stack>
           </form>
         </Card>
+
         <Text ta="center">Tell your pet: We already love him ♥</Text>
       </Stack>
     </Container>

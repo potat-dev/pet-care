@@ -7,8 +7,16 @@ import React from 'react';
 import { UsefulTips } from '@/components/UsefulTips';
 import tips from '@/data/useful';
 import { openAddConfirmationModal } from '@/components/ConfirmationModal';
+import { useAuthContext } from '@/firebase/context';
+import { NotSignedCard } from '@/components/NotSignedCard';
+import { LoadingSkeleton } from '@/components/LoadingSkeleton';
 
 export default function SicknessPage() {
+  const { user, loading } = useAuthContext();
+
+  if (loading) return <LoadingSkeleton />;
+  if (!loading && !user) return <NotSignedCard />;
+
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: {
@@ -100,6 +108,7 @@ export default function SicknessPage() {
             </Stack>
           </form>
         </Card>
+
         <Title order={2}>Useful Tips</Title>
         <UsefulTips items={tips.sick} />
       </Stack>

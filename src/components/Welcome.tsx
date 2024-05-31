@@ -39,10 +39,10 @@ export function Welcome() {
 
   return (
     <Stack gap="sm">
-      <Title order={1} c="blue" size="5rem" fw={800}>
+      <Title c="blue" fz={{ base: '3rem', sm: '4rem', md: '5rem' }} fw={800}>
         Pet Care
       </Title>
-      <Title order={3} c="dimmed">
+      <Title c="dimmed" fz={{ base: '1rem', sm: '1.5rem' }}>
         Best app to track Your pet&apos;s health
         {/* <br />— trusted by over 10,000 pet owners */}
       </Title>

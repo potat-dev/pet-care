@@ -6,8 +6,16 @@ import { DatePickerInput } from '@mantine/dates';
 import { UsefulTips } from '@/components/UsefulTips';
 import tips from '@/data/useful';
 import { openAddConfirmationModal } from '@/components/ConfirmationModal';
+import { NotSignedCard } from '@/components/NotSignedCard';
+import { useAuthContext } from '@/firebase/context';
+import { LoadingSkeleton } from '@/components/LoadingSkeleton';
 
 export default function WeightForm() {
+  const { user, loading } = useAuthContext();
+
+  if (loading) return <LoadingSkeleton />;
+  if (!loading && !user) return <NotSignedCard />;
+
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: {
@@ -68,6 +76,7 @@ export default function WeightForm() {
             </Stack>
           </form>
         </Card>
+
         <Title order={3}>Useful Tips</Title>
         <UsefulTips items={tips.weight} />
       </Stack>
