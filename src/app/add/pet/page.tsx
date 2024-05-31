@@ -43,7 +43,7 @@ export default function AddPetPage() {
   });
 
   return (
-    <Container size="sm" px={0}>
+    <Container size="xs" px={0}>
       <Stack>
         <Card padding="lg" radius="md">
           <Card.Section inheritPadding py="sm">
@@ -64,7 +64,7 @@ export default function AddPetPage() {
                 withAsterisk
                 label="Species"
                 placeholder="Select species"
-                data={['Cat', 'Dog', 'Bird', 'Elephant', 'Other']}
+                data={['Cat', 'Dog', 'Bird', 'Other']}
                 key={form.key('species')}
                 {...form.getInputProps('species')}
               />
@@ -89,7 +89,7 @@ export default function AddPetPage() {
                 withAsterisk
                 label="Sex"
                 placeholder="Select sex"
-                data={['Male', 'Female', 'Attack Helicopter 🚁']}
+                data={['Male', 'Female']}
                 key={form.key('sex')}
                 {...form.getInputProps('sex')}
               />
