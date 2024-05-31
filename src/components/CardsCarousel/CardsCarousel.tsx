@@ -30,9 +30,6 @@ function Card({ image, title, date }: CardProps) {
           {title}
         </Title>
       </div>
-      {/* <Button variant="white" color="dark">
-        Read article
-      </Button> */}
     </Paper>
   );
 }
@@ -56,11 +53,8 @@ export function CardsCarousel({ cards }: CardsCarouselProps) {
       classNames={classes}
       slideSize={{ base: '100%', sm: '50%' }}
       slideGap="md"
-      // slideGap={{ base: 'xl',  }}
       align="start"
       withIndicators={mobile}
-      // slidesToScroll={mobile ? 1 : 2}
-      // slidesToScroll={1}
       loop
     >
       {slides}

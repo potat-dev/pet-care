@@ -22,7 +22,6 @@ export function VaccineCard({ vaccine }: VaccineCardProps) {
           <Title order={4}>{vaccine.name}</Title>
           <Text c="dimmed">{vaccine.info}</Text>
         </Stack>
-        {/* <Avatar src={pet.avatar} radius="xl" size="lg" /> */}
         <Avatar radius="md" size="lg">
           {vaccine.date}
         </Avatar>

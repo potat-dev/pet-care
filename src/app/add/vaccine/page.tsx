@@ -77,7 +77,6 @@ export default function VaccinePage() {
                 placeholder="Pick date and time"
                 key={form.key('nextVaccinationDate')}
                 {...form.getInputProps('nextVaccinationDate')}
-                // value={nextVaccinationDate}
               />
 
               <Textarea

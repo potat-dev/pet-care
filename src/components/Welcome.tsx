@@ -49,15 +49,12 @@ export function Welcome() {
       <List my="md" spacing="sm" size="lg" center icon={<IconCheck size="1.5rem" stroke={2} />}>
         <List.Item>
           <Text fw={700}>Track your pet&apos;s health, mood, and activity</Text>
-          {/* <Text>Stay organized and spot potential issues early</Text> */}
         </List.Item>
         <List.Item>
           <Text fw={700}>Receive tips and vaccinations reminders</Text>
-          {/* <Text>Never miss a vet appointment, medication, or important event again</Text> */}
         </List.Item>
         <List.Item>
           <Text fw={700}>Connect with a community of pet owners</Text>
-          {/* <Text>Ensure they&apos;re always up-to-date on essential care</Text> */}
         </List.Item>
       </List>
       <Group>{buttons}</Group>
